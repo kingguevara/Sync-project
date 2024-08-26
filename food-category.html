@@ -16,7 +16,7 @@
 
 <!-- Desktop -->
 <div id="navbar" class="fixed top-0 w-full bg-white shadow-lg z-50">
-    <nav class="flex items-center justify-between p-4 mx-auto">
+    <nav class="flex items-center justify-between md:p-4 p-0 mx-auto">
 
         <!-- LOGO -->
         <a href="index.html" class="flex items-center"><img src="images/logo-nav.png" alt="Logo" class="h-8"></a>
@@ -165,14 +165,17 @@
             <!-- Header -->
             <div class="flex flex-col md:flex-row items-center mb-12 p-4 max-w-6xl mx-auto">
                 <div class="md:w-2/5 transform translate-x-[-50px] animate-fade-slide">
-                    <p class="mb-4 text-sm pl-3.5">Browse > Foods</p>
-                     <div class="rounded-md overflow-hidden w-full transform translate-x-[-50px] animate-fade-slide relative">
-                        <img src="images/product-image.png" alt="Product Image" class="w-full h-auto rounded-md transform transition-transform duration-700 ease-in-out hover:scale-105">
+                    <div class="md:ml-36 ml-0">
+                        <a href="blog-article--list.html" class="hover:underline">Browse</a> >
+                        <span class="text-gray-700">Foods</span>
+                    </div>
+                     <div class="rounded-md overflow-hidden w-full transform translate-x-[-50px] animate-fade-slide relative mt-6">
+                        <img src="images/food-category.png" alt="Product Image" class="w-full h-auto rounded-md transform transition-transform duration-700 ease-in-out hover:scale-105">
                     </div>
                 </div>
 
                 <!-- Text / Tabs -->
-                <div class="md:w-3/5 mt-4 md:mt-0 md:pl-6 text-black transform translate-x-[-50px] animate-fade-slide-right food-right">
+                <div class="md:w-3/5 md:mt-8 mt-0 md:pl-6 text-black transform translate-x-[-50px] animate-fade-slide-right food-right">
                     <h1 class="text-3xl font-bold">Foods</h1>
                     <p class="mt-2 mb-6 ">Explore premium suppliers for fresh produce, artisanal ingredients, and specialty foods. Whether you're sourcing organic fruits, gourmet spices, or meats, connect with trusted vendors to elevate your menu and streamline your sourcing process. Start browsing now for the finest ingredients.</p>
                     <div class="bg-[#F9F9EF] text-sm font-medium text-gray-500 overflow-auto rounded-xl">
@@ -194,334 +197,439 @@
     
             <!-- Body content -->
             <div class="flex flex-col md:flex-row relative">
-      
-                <!-- Side filter categories -->
-                <div class="filter-container mb-8 md:mb-0 md:mr-20 text-sm">
-                    <div class="p-4">
-
-                        <!-- Filter categories -->
-                        <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Categories</h2>
-                        <ul class="mb-4 px-4">    
-                            
-                            <!-- Drinks -->
-                            <li class="my-5">
-                                <div id="drinksItem" class="flex items-center cursor-pointer" onclick="toggleCheckbox('drinksItem', 'drinksCheckbox')">
-                                    <input id="drinksCheckbox" type="checkbox" class="mr-2"> 
-                                    <span>Drinks (3)</span>
-                                </div>
-                            </li>
-                            
-                            <!-- Food -->
-                            <li class="my-5">
-                                <div id="foodItem" class="flex items-center justify-between cursor-pointer" onclick="toggleDropdown('foodDropdown', 'foodIcon', 'foodItem', 'foodCheckbox')">
-                                    <div class="flex items-center">
-                                        <input id="foodCheckbox" type="checkbox" class="mr-2"> 
-                                        <span>Food (2)</span>
+                <div class="flex max-w-7xl mx-auto side-filter">
+                    <div class="sidebar-container md:w-1/5 md:p-4 p-0 relative">
+                        <!-- sidefilter -->
+                        <div id="sticky-sidebar" class="filter-container md:p-4 p-0 sticky top-20">
+                            <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Categories</h2>
+                            <ul class="mb-4 text-sm">
+                                <!-- Drinks -->
+                                <li class="my-5">
+                                    <label for="drinksCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('drinksCheckbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black">
+                                            <input id="drinksCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none"> 
+                                        </div>
+                                        <input id="drinksCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none"> 
+                                        <span id="drinksText">Drinks (3)</span>
+                                    </label>
+                                </li>
+                        
+                                <!-- Food -->
+                                <li class="my-5">
+                                    <label for="foodCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('foodCheckbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="foodCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="foodText">Food (2)</span>
+                                    </label>
+                                </li>
+                        
+                                <!-- Furniture -->
+                                <li class="my-5">
+                                    <label for="furnitureCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('furnitureCheckbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="furnitureCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="furnitureText">Furniture (9)</span>
+                                    </label>
+                                </li>
+                        
+                                <!-- Decor -->
+                                <li class="my-5">
+                                    <div id="decorItem" class="flex items-center justify-between cursor-pointer" onclick="toggleDropdown('decorDropdown', 'decorIcon')">
+                                        <label for="decorCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('decorCheckbox')">
+                                            <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                                <input id="decorCheckbox" type="checkbox" class="appearance-none rounded-full checked:bg-blue-500 checked:border-transparent focus:outline-none">
+                                            </div>
+                                            <span id="decorText">Decor (14)</span>
+                                        </label>
+                                        <svg id="decorIcon" class="w-4 h-4 dropdown-icon transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
                                     </div>
-                                    <svg id="foodIcon" class="w-4 h-4 dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
-                                <ul class="ml-6 mt-2 hidden" id="foodDropdown">
-                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 1 (3)</li>
-                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 2 (1)</li>
-                                </ul>
-                            </li>
+                                    <ul class="ml-6 mt-2 hidden" id="decorDropdown">
+                                        <li class="mt-2">
+                                            <label for="subCategory1Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('subCategory1Checkbox')">
+                                                <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                                    <input id="subCategory1Checkbox" type="checkbox" class="appearance-none rounded-full checked:bg-gray-800 checked:border-transparent focus:outline-none"> 
+                                                </div>
+                                                <span id="subCategory1Text">Sub Category 1 (3)</span>
+                                            </label>
+                                        </li>
+                                        <li class="mt-2">
+                                            <label for="subCategory2Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('subCategory2Checkbox')">
+                                                <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                                    <input id="subCategory2Checkbox" type="checkbox" class="appearance-none rounded-full checked:bg-gray-800 checked:border-transparent focus:outline-none"> 
+                                                </div>
+                                                <span id="subCategory2Text">Sub Category 2 (9)</span>
+                                            </label>
+                                        </li>
+                                        <li class="mt-2 mb-2">
+                                            <label for="subCategory3Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('subCategory3Checkbox')">
+                                                <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                                    <input id="subCategory3Checkbox" type="checkbox" class="appearance-none rounded-full checked:bg-gray-800 checked:border-transparent focus:outline-none"> 
+                                                </div>
+                                                <span id="subCategory3Text">Sub Category 3 (2)</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </li>
+                        
+                                <!-- Bakery -->
+                                <li class="my-5">
+                                    <label for="bakeryCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('bakeryCheckbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="bakeryCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="bakeryText">Bakery (3)</span>
+                                    </label>
+                                </li>
+                        
+                                <!-- Category -->
+                                <li class="my-5">
+                                    <label for="categoryCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('categoryCheckbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="categoryCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="categoryText">Category (2)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        
+                            <!-- Filter by Brands -->
+                            <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Brands</h2>
+                            <ul class="mb-4">
+                                <!-- Brand 1 -->
+                                <li class="my-5">
+                                    <label for="brand1Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('brand1Checkbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="brand1Checkbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="brand1Text">Brand 1 (13)</span>
+                                    </label>
+                                </li>
 
-                            <!-- Furniture -->
-                            <li class="my-5">
-                                <div id="furnitureItem" class="flex items-center cursor-pointer" onclick="toggleCheckbox('furnitureItem', 'furnitureCheckbox')">
-                                    <input id="furnitureCheckbox" type="checkbox" class="mr-2"> 
-                                    <span>Furniture (9)</span>
-                                </div>
-                            </li>
-                            
-                            <!-- Decor -->
-                            <li class="my-5">
-                                <div id="decorItem" class="flex items-center justify-between cursor-pointer" onclick="toggleDropdown('decorDropdown', 'decorIcon', 'decorItem', 'decorCheckbox')">
-                                    <div class="flex items-center">
-                                        <input id="decorCheckbox" type="checkbox" class="mr-2"> 
-                                        <span>Decor (14)</span>
-                                    </div>
-                                    <svg id="decorIcon" class="w-4 h-4 dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
-                                <ul class="ml-6 mt-2 hidden" id="decorDropdown">
-                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 1 (3)</li>
-                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 2 (1)</li>
-                                </ul>
-                            </li>
-            
-                            <!-- Bakery -->
-                            <li class="my-5">
-                                <div id="bakeryItem" class="flex items-center justify-between cursor-pointer" onclick="toggleDropdown('bakeryDropdown', 'bakeryIcon', 'bakeryItem', 'bakeryCheckbox')">
-                                    <div class="flex items-center">
-                                        <input id="bakeryCheckbox" type="checkbox" class="mr-2"> 
-                                        <span>Bakery (3)</span>
-                                    </div>
-                                    <svg id="bakeryIcon" class="w-4 h-4 dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
-                                <ul class="ml-6 mt-2 hidden" id="bakeryDropdown">
-                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 1 (3)</li>
-                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 2 (1)</li>
-                                </ul>
-                            </li>
+                                <li class="my-5">
+                                    <label for="brand2Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('brand2Checkbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="brand2Checkbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="brand2Text">Brand 2 (5)</span>
+                                    </label>
+                                </li>
 
-                            <!-- Category -->
-                            <li class="my-5">
-                                <div id="categoryItem" class="flex items-center cursor-pointer" onclick="toggleCheckbox('categoryItem', 'categoryCheckbox')">
-                                    <input id="categoryCheckbox" type="checkbox" class="mr-2"> 
-                                    <span>Category (2)</span>
-                                </div>
-                            </li>
-                        </ul>
+                                <li class="my-5">
+                                    <label for="brand3Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('brand3Checkbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="brand3Checkbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="brand2Text">Brand 2 (5)</span>
+                                    </label>
+                                </li>
 
-                        <!-- Filter brands -->
-                        <h2 class="text-sm font-semibold my-4 mt-10">Filter by Brands</h2>
-                        <ul class="my-4 px-4">
-                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 1 (13)</li>
-                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 2 (5)</li>
-                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 3 (2)</li>
-                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 4 (2)</li>
-                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 5 (4)</li>
-                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 6 (1)</li>
-                        </ul>
+                                <li class="my-5">
+                                    <label for="brand4Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('brand4Checkbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="brand4Checkbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="brand2Text">Brand 2 (5)</span>
+                                    </label>
+                                </li>
 
-                        <!-- Filter allergens -->
-                        <h2 class="text-sm font-semibold my-4 mt-8">Filter by Allergens</h2>
+                                <li class="my-5">
+                                    <label for="brand5Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('brand5Checkbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="brand5Checkbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="brand2Text">Brand 2 (5)</span>
+                                    </label>
+                                </li>
 
-                        <!-- Filter attribute -->
-                        <h2 class="text-sm font-semibold my-4">Filter by Attribute</h2>
-                    </div>
-                </div>
-    
-                <!-- Product Grid -->
-                <div class="md:w-3/4">
-                    <div class="mb-8">
-                        <h2 class="text-xl font-semibold mb-4">Featured Items</h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 100ms;"data-category="Drinks">
-                                  <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 200ms;" data-category="Drinks">
-                                  <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 300ms;" data-category="Drinks">
-                                  <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 400ms;" data-category="Drinks">
-                                  <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                            </div>
+                                <li class="my-5">
+                                    <label for="brand6Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('brand6Checkbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="brand6Checkbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="brand2Text">Brand 2 (5)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        
+                            <!-- Filter by Allergens -->
+                            <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Allergens</h2>
+                            <ul class="mb-4">
+                                <li class="my-5">
+                                    <label for="allergen1Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('allergen1Checkbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="allergen1Checkbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="allergen1Text">Allergen 1</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        
+                            <!-- Filter by Attribute -->
+                            <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Attribute</h2>
+                            <ul class="mb-4">
+                                <li class="my-5">
+                                    <label for="attribute1Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('attribute1Checkbox')">
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="attribute1Checkbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
+                                        </div>
+                                        <span id="attribute1Text">Attribute 1</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <!-- List of foods -->
-                    <div class="list-food">
-                        <div class="flex justify-between items-center my-10">
-                            <h2 class="text-lg font-semibold">Here's a list of Foods</h2>
+                
+                    <!-- Main Content -->
+                    <div class="main-content flex-1 md:p-4 p-0">
+                        <div class="content-box">
+
+                            <!-- Featured items -->
+                            <div class="py-8">
+                                <h2 class="text-2xl font-bold mb-6">Featured Items</h2>
+                                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+
+                                    <div class="overflow-visible fade-in">
+                                        <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                                        <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                            <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                            <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                            <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="overflow-visible fade-in">
+                                        <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                                        <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                            <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                            <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                            <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="overflow-visible fade-in">
+                                        <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                                        <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                            <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                            <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                            <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="overflow-visible fade-in">
+                                        <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                                        <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                            <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                            <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                            <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        </div>
+                                    </div>     
+                                </div> 
+                            </div>
                             
-                            <!-- dropdown -->
-                            <div class="relative inline-block text-left w-full max-w-xs">
-                                <div>
-                                    <!-- Dropdown Button -->
-                                    <label for="sort-by" class="text-xs font-medium text-gray-700 bg-white mr-2">Sort By</label>
-                                    <button id="dropdownButton" class="flex justify-between items-center w-full rounded border border-b-0 border-gray-300 px-4 py-2 bg-white text-sm font-medium ">
-                                        <span class="flex items-center">
-                                            <span id="selectedOption" class="font-semibold">Recently added</span>
-                                        </span>
-                                        <svg id="dropdownIcon" class="ml-2 h-5 w-5 text-gray-700 transform transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 011.414 0L10 11.414l3.293-3.707a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            <div class="flex justify-between flex-wrap">
+                                <h2 class="text-2xl font-bold md:mb-0 mb-4">Here’s a list of Foods</h2>
+                                <!-- dropdown sort by -->
+                                <div class="relative inline-block text-left w-60">
+                                    <button id="sortButton" type="button" class="inline-flex justify-between items-center w-full rounded-lg border border-black p-3 bg-white text-sm font-medium text-gray-700 focus:outline-none">
+                                        <span id="selectedOption" class="">Recently added</span>
+                                        <svg id="arrowIcon" class="ml-2 h-5 w-5 text-gray-500 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </button>
-                                </div>
-                            
-                                <!-- Dropdown Menu -->
-                                <div id="dropdownMenu" class="origin-top-left absolute left-0 w-full rounded z-10 bg-white transition-all duration-500 ease-out transform opacity-0 scale-95 hidden">
-                                    <div class="py-2">
-                                        <a href="#" data-value="newest-first" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100">Newest First</a>
-                                        <a href="#" data-value="most-expensive" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100">Most Expensive</a>
-                                        <a href="#" data-value="minimal-stock" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100">Minimal Stock</a>
-                                        <a href="#" data-value="oldest-first" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100">Oldest First</a>
+                                
+                                    <!-- Dropdown menu -->
+                                    <div id="dropdownMenu" class="origin-top-right absolute right-0 border border-black border-t-0 w-full ring-opacity-5 bg-white hidden rounded-b-lg z-10">
+                                        <div class="py-1">
+                                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Newest First</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Most Expensive</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Minimal Stock</a>
+                                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Oldest First</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                        </div>
-                        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                            <!-- list of foods -->
+                            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
+                                <!-- Repeated item -->
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div>
 
-                            <!-- Item 1 -->
-                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div>
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div>
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div>  
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div> 
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div> 
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div> 
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div> 
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div> 
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div> 
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div> 
+
+                                <div class="overflow-visible fade-in">
+                                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                                        <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                        <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                    </div>
+                                </div> 
                             </div>
-
-                             <!-- Item 2 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div>
-
-                             <!-- Item 3 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div>
-
-                             <!-- Item 4-->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div> 
-
-                             <!-- Item 5 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div>
-
-                             <!-- Item 6 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div> 
-
-                             <!-- Item 7 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div>
-
-                             <!-- Item 8 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div>
-
-                             <!-- Item 9 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div> 
-
-                             <!-- Item 10 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div> 
-
-                             <!-- Item 11 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div> 
-
-                             <!-- Item 12 -->
-                             <div class="bg-white p-4 rounded-lg shadow opacity-0 product transition-transform transform hover:scale-105 hover:shadow-lg">
-                                <img class="w-full max-w-28 mx-auto object-cover transition-transform transform hover:scale-110" src="images/lata.png" alt="">
-                                <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
-                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
-                            </div> 
-                        </div>
-                        
-                        <!-- Pagination -->
-                        <div class="container mx-auto py-8">
-                            <div class="pagination items-center text-end flex justify-end">
+                            
+                            <!-- pagination -->
+                            <div class="pagination items-center text-end flex justify-end mt-10">
                                 <ul class="border rounded-xl flex p-4 bg-white text-center">
                                     <li>
-                                        <a href="#" class="prev px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500 disabled:opacity-50 disabled:pointer-events-none">«</a>
+                                        <a href="#" class="prev px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500 disabled:opacity-50 disabled:pointer-events-none">«</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="page-num px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500">1</a>
+                                        <a href="#" class="page-num px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500">1</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="page-num px-2.5 py-1.5  border ro unded-md text-gray-700 hover:bg-gray-100 hover:border-purple-500">2</a>
+                                        <a href="#" class="page-num px-2.5 py-1.5 border ro unded-md text-gray-700 hover:bg-gray-100 hover:border-purple-500">2</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="page-num px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500">3</a>
+                                        <a href="#" class="page-num px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500">3</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="page-num px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500">4</a>
+                                        <a href="#" class="page-num px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500">4</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="page-num px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500">5</a>
+                                        <a href="#" class="page-num px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500">5</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="next px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500 disabled:opacity-50 disabled:pointer-events-none">»</a>
+                                        <a href="#" class="next px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500 disabled:opacity-50 disabled:pointer-events-none">»</a>
                                     </li>
-                                </ul>
+                               </ul>
                             </div>
+
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>   
         </div>
     </div>
 </main>
 
 <!-- footer -->
-<footer class="relative bg-[#FFFFF6] py-12 mt-60">
+<footer class="relative bg-[#FFFFF6] py-12 mt-40">
 
     <!-- Left Image -->
     <div class="absolute inset-y-0 left-0 ">
@@ -683,65 +791,6 @@
 
 </script>
  
-<!-- save / unsave item JS -->
-<script>
-    
-    function toggleSave(button) {
-        if (button.classList.contains('bg-black')) {
-            button.classList.remove('bg-black');
-            button.classList.add('bg-purple-500', 'cursor-not-allowed');
-            button.innerHTML = '<i class="fas fa-check mr-2"></i> saved';
-        } else {
-            button.classList.remove('bg-purple-500', 'cursor-not-allowed');
-            button.classList.add('bg-black');
-            button.innerHTML = '+ wishlist';
-        }
-    
-        button.classList.add('scale-105');
-        setTimeout(() => {
-            button.classList.remove('scale-105');
-        }, 300);
-    }
-
-</script>
-
-<!-- dropdown sidebar -->
-<script>
-
-    function toggleDropdown(dropdownId, iconId, itemId, checkboxId) {
-    const dropdown = document.getElementById(dropdownId);
-    const icon = document.getElementById(iconId);
-    const item = document.getElementById(itemId);
-    const checkbox = document.getElementById(checkboxId);
-
-        dropdown.classList.toggle('hidden');
-        icon.classList.toggle('open');
-
-        checkbox.checked = !checkbox.checked;
-
-  
-        if (checkbox.checked) {
-            item.classList.add('dropdown-active');
-        } else {
-            item.classList.remove('dropdown-active');
-        }
-    }
-
-    function toggleCheckbox(itemId, checkboxId) {
-    const item = document.getElementById(itemId);
-    const checkbox = document.getElementById(checkboxId);
-
-        checkbox.checked = !checkbox.checked;
-
-        if (checkbox.checked) {
-            item.classList.add('dropdown-active');
-        } else {
-            item.classList.remove('dropdown-active');
-        }
-    }
-
-</script>
-
 <!-- animation card JS -->
 <script>
 
@@ -764,47 +813,139 @@
     
 </script>
 
-<!-- dropdown sort style -->
+<!-- filter dropdown -->
 <script>
-   
-   document.getElementById('dropdownButton').addEventListener('click', function() {
-    var dropdown = document.getElementById('dropdownMenu');
-    var dropdownIcon = document.getElementById('dropdownIcon');
-    
-    if (dropdown.classList.contains('hidden')) {
-        dropdown.classList.remove('hidden');
-        setTimeout(() => {
-            dropdown.classList.remove('opacity-0', 'scale-95');
-            dropdown.classList.add('opacity-100', 'scale-100');
-        }, 10); // Small timeout to allow transition to take effect
-    } else {
-        dropdown.classList.add('opacity-0', 'scale-95');
-        dropdown.classList.remove('opacity-100', 'scale-100');
-        setTimeout(() => {
-            dropdown.classList.add('hidden');
-        }, 500); // Match this to transition duration
+
+    function toggleBoldAndCheck(checkboxId) {
+    const checkbox = document.getElementById(checkboxId);
+    const label = document.querySelector(`label[for=${checkboxId}] span`);
+
+    checkbox.checked = !checkbox.checked;
+        if (checkbox.checked) {
+            label.classList.add('font-bold');
+        } else {
+            label.classList.remove('font-bold');
+        }
     }
 
-    dropdownIcon.classList.toggle('rotate-90');
-});
-
-document.querySelectorAll('#dropdownMenu a').forEach(item => {
-    item.addEventListener('click', function(e) {
-        e.preventDefault();
-        var selectedText = this.textContent;
-        document.getElementById('selectedOption').textContent = selectedText;
-
-        var dropdown = document.getElementById('dropdownMenu');
-        dropdown.classList.add('opacity-0', 'scale-95');
-        dropdown.classList.remove('opacity-100', 'scale-100');
-        setTimeout(() => {
-            dropdown.classList.add('hidden');
-        }, 500);
-
-    });
-});
+    function toggleDropdown(dropdownId, iconId) {
+        const dropdown = document.getElementById(dropdownId);
+        const icon = document.getElementById(iconId);
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('transform');
+        icon.classList.toggle('rotate-180');
+    }
 
 </script>
+
+<!-- sitcky -->
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.getElementById('sticky-sidebar');
+    const container = sidebar.parentElement;
+
+    window.addEventListener('scroll', function () {
+        const containerRect = container.getBoundingClientRect();
+        const sidebarRect = sidebar.getBoundingClientRect();
+
+        if (containerRect.bottom < sidebarRect.bottom) {
+            sidebar.style.position = 'absolute';
+            sidebar.style.bottom = '0';
+        } else {
+            sidebar.style.position = 'sticky';
+            sidebar.style.top = '20px';
+
+            }
+        });
+    });
+
+</script>
+
+<!-- save / unsave item JS -->
+<script>
+    
+    function toggleSave(button) {
+        if (button.classList.contains('bg-black')) {
+            button.classList.remove('bg-black');
+            button.classList.add('bg-purple-500', 'cursor-not-allowed');
+            button.innerHTML = '<i class="fas fa-check mr-2"></i> saved';
+        } else {
+            button.classList.remove('bg-purple-500', 'cursor-not-allowed');
+            button.classList.add('bg-black');
+            button.innerHTML = '+ wishlist';
+        }
+    
+        button.classList.add('scale-105');
+        setTimeout(() => {
+            button.classList.remove('scale-105');
+        }, 300);
+    }
+
+</script>
+
+<!-- fade animation -->
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const elements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+
+</script>
+
+<!-- dropdown sort by -->
+ <script>
+
+    document.getElementById('sortButton').addEventListener('click', function() {
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const arrowIcon = document.getElementById('arrowIcon');
+    const sortButton = document.getElementById('sortButton');
+    const selectedOption = document.getElementById('selectedOption');
+    dropdownMenu.classList.toggle('hidden');
+    
+        if (!dropdownMenu.classList.contains('hidden')) {
+            arrowIcon.classList.add('rotate-90');  // Rotates the arrow icon to the right
+            sortButton.classList.add('border-b-0');  // Removes the bottom border
+            sortButton.classList.add('rounded-b-none'); // Removes bottom border radius
+            selectedOption.classList.add('font-bold');  // Makes the text bold
+        } else {
+            arrowIcon.classList.remove('rotate-90'); // Reset the rotation when closed
+            sortButton.classList.remove('border-b-0'); // Adds the bottom border back
+            sortButton.classList.remove('rounded-b-none'); // Adds the bottom border radius back
+            selectedOption.classList.remove('font-bold');  // Removes the bold class
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+    const isClickInside = document.getElementById('sortButton').contains(event.target);
+    const dropdownMenu = document.getElementById('dropdownMenu');
+        
+        if (!isClickInside && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.add('hidden');
+            const arrowIcon = document.getElementById('arrowIcon');
+            const sortButton = document.getElementById('sortButton');
+            const selectedOption = document.getElementById('selectedOption');
+            arrowIcon.classList.remove('rotate-90'); // Reset the arrow rotation when clicked outside
+            sortButton.classList.remove('border-b-0'); // Adds the bottom border back
+            sortButton.classList.remove('rounded-b-none'); // Adds the bottom border radius back
+            selectedOption.classList.remove('font-bold');  // Removes the bold class
+        }
+    });
+
+ </script>
 
 </body>
 

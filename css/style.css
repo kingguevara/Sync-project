@@ -306,6 +306,12 @@ nav {
 
 /* media responsive */
 
+.side-filter {
+    @media (max-width: 568px) {
+        display: block!important;
+    }
+}
+
 .slide-image {
     @media (max-width: 420px) {
         width: 70%;
