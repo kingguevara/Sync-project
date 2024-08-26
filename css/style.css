@@ -309,6 +309,33 @@ nav {
 }
 
 
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; 
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-slide-container {
+    flex: 0 0 calc(100% / 5); 
+  }
+
+.carousel-slide {
+    max-width: 20rem;
+    min-width: 5rem;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1080px) {
+    .carousel-slide {
+        min-width: 17rem!important;
+    }
+}
 
 .card-blog {
     @media (max-width: 768px) {
