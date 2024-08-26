@@ -294,7 +294,7 @@ nav {
 
 .slide-image {
     @media (max-width: 420px) {
-        width: 100%;
+        width: 70%;
     }
 }
 
