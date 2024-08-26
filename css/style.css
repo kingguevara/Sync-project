@@ -24,6 +24,9 @@ input:focus {
 }
 
 
+
+
+
 .custom-border {
     border-color: #79747E;
 }
@@ -109,6 +112,17 @@ input:focus {
   animation: fadeSlideInRight .9s ease-in-out forwards;
 }
 
+/* fade animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
 /* dashboard css */
 
