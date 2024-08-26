@@ -420,25 +420,6 @@ nav {
         margin-top: 0!important;
     }
 }
-
-.featured-item {
-    @media (max-width: 920px) {
-        grid-template-columns: 1fr 1fr 1fr!important;
-    }    
-}
-
-.featured-item {
-    @media (max-width: 568px) {
-        grid-template-columns: 1fr 1fr!important;
-    }    
-}
-
-.featured-item {
-    @media (max-width: 320px) {
-        grid-template-columns: 1fr!important;
-    }    
-}
-
     
 .radio-buyer {
     @media (max-width: 768px) {
