@@ -1,0 +1,789 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   <!-- fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+
+        .dropdown-icon {
+            transition: transform 0.3s ease;
+        }
+        .dropdown-icon.open {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-active {
+            color: black;
+           font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="bg-[#FFFFF6] h-screen">
+
+<!-- Desktop -->
+<div id="navbar" class="fixed top-0 w-full bg-white shadow-lg z-50">
+    <nav class="flex items-center justify-between p-4 mx-auto">
+
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center"><img src="images/logo-nav.png" alt="Logo" class="h-8"></a>
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-6 text-black font-medium">
+            <a href="food-category.html" class="hover:text-black text-sm">Food</a>
+            <a href="#" class="hover:text-black text-sm">Drinks</a>
+            <a href="#" class="hover:text-black text-sm">Furniture</a>
+            <a href="#" class="hover:text-black text-sm">Linens & Textiles</a>
+            <a href="#" class="hover:text-black text-sm">Packaging & Disposable</a>
+            <a href="#" class="hover:text-black text-sm text-purple-500">More > ></a>
+        </div>
+
+        <!-- Search Bar and Company Dropdown -->
+        <div class="hidden md:flex items-center space-x-4">
+            <!-- Search Bar -->
+            <div class="relative">
+                <input type="text" placeholder="Search for stock and supplies" class="border p-2 rounded-lg pl-10 text-sm w-64">
+                <svg class="w-5 h-5 absolute top-2.5 left-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.415l4.243 4.243a1 1 0 01-1.414 1.415l-4.243-4.243zM8 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+
+            <!-- Company Dropdown -->
+            <div class="relative inline-block text-left">
+                <button id="company-dropdown-btn" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-[#f5f4e7] border border-transparent rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span class="flex items-center">
+                        <img src="" alt="" class="inline-block w-5 h-5 mr-3 bg-gray-300 rounded-full">
+                        <span class="text-gray-900">THE BAKERY COMPANY</span>
+                    </span>
+                    <svg class="ml-auto w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+
+                <!-- Dropdown Menu -->
+                <div id="company-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg">
+                    <ul class="py-2 text-sm text-gray-700">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE BAKERY COMPANY</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE PASTRY SHOP</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">CAFE DELIGHT</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">SWEET TREATS INC</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hamburger Icon for Mobile -->
+        <button id="menu-btn" class="block md:hidden ml-auto focus:outline-none">
+            <svg id="menu-icon" class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </nav>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-40 overflow-auto transform translate-x-full opacity-0 transition-transform transition-opacity duration-300 ease-in-out">
+    <div class="p-4 flex justify-end">
+        <button id="close-menu-btn" class="focus:outline-none">
+            <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <ul class="p-4 space-y-6">
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Foods</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Drinks</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Furniture</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Linens & Textiles</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Packaging & Disposable</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">register as a supplier</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">register as a buyer</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">advertise with us</a></li>
+        
+        <!-- Search Bar -->
+        <div class="relative">
+            <input type="text" placeholder="Search for stock and supplies" class="border p-2 rounded-lg pl-10 text-sm w-full">
+            <svg class="w-5 h-5 absolute top-2.5 left-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.415l4.243 4.243a1 1 0 01-1.414 1.415l-4.243-4.243zM8 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        
+        <!-- Company Dropdown -->
+        <div class="relative inline-block text-left mt-4">
+            <div>
+                <button id="company-dropdown-btn" class="inline-flex items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-[#f5f4e7] border border-transparent rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span class="flex items-center">
+                        <img src="" alt="" class="inline-block w-5 h-5 mr-3 bg-gray-300 rounded-full">
+                        <span class="text-gray-900">THE BAKERY COMPANY</span>
+                    </span>
+                    <svg class="ml-auto w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div id="company-dropdown-menu" class="hidden absolute right-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                <ul class="py-2 text-sm text-gray-700">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE BAKERY COMPANY</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE PASTRY SHOP</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">CAFE DELIGHT</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">SWEET TREATS INC</a></li>
+                </ul>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<header class="max-w-7xl mx-auto p-4">
+    <div class="mx-auto flex justify-between items-center hide px-4 sm:px-6 lg:px-8">
+      <nav class="flex space-x-8">
+        <a href="#" class="text-gray-800 hover:text-purple-600">advertise with us</a>
+        <a href="sign-up.html" class="text-gray-800 hover:text-purple-600">register as a supplier</a>
+        <a href="sign-up.html" class="text-gray-800 hover:text-purple-600">register as a buyer</a>
+      </nav>  
+      <div>
+        <a href="login.html" class="text-gray-800 hover:text-purple-600">login</a>
+      </div>
+    </div>
+     <!-- Logo -->
+    <a href="index.html"><img src="images/synclogo.png" alt="" class="m-full max-w-40 mx-auto object-cover mt-6"></a>
+</header>
+
+<!-- main wrapper -->
+<main class="main-wrapper mx-auto max-w-7xl">
+    <div class="container mx-auto py-10">
+        <div class="mx-auto">
+            <div class="w-4/5 mx-auto">
+                <div class="flex items-center mt-10 justify-center mb-4 relative">   
+                    <div class="relative w-full max-w-3xl">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-400 flex justify-center items-center"></i>
+                        <input type="text" id="searchInput" placeholder="Search for stock and supplies" class="w-full py-4 pl-10 pr-4 border border-gray-200 rounded-lg" />
+                    </div>
+                    <!-- Filter  -->
+                    <button id="filterButton" class="flex items-center justify-center py-4 px-5 bg-white border border-gray-200 rounded-lg ml-3.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4M12 7v10M10 21h4M6 7h12M6 17h12" />
+                        </svg>
+                    </button>
+                </div>
+                <p class="mb-4 text-sm ml-16">Browse > Search ></p>
+
+                <!-- Results Container -->
+                <div id="resultsContainer" class="ml-12 mt-4 px-4 flex text-xs">
+                    <!-- For search result display -->
+                </div>
+            </div>
+    
+            <!-- Body content -->
+            <div class="flex flex-col md:flex-row relative mt-16">
+      
+                <!-- Side filter categories -->
+                <div class="filter-container mb-8 md:mb-0 md:mr-20 text-sm">
+                    <div class="p-4">
+
+                        <!-- Filter categories -->
+                        <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Categories</h2>
+                        <ul class="mb-4 px-4">    
+                            
+                            <!-- Drinks -->
+                            <li class="my-5">
+                                <div id="drinksItem" class="flex items-center cursor-pointer" onclick="toggleCheckbox('drinksItem', 'drinksCheckbox')">
+                                    <input id="drinksCheckbox" type="checkbox" class="mr-2"> 
+                                    <span>Drinks (3)</span>
+                                </div>
+                            </li>
+                            
+                            <!-- Food -->
+                            <li class="my-5">
+                                <div id="foodItem" class="flex items-center justify-between cursor-pointer" onclick="toggleDropdown('foodDropdown', 'foodIcon', 'foodItem', 'foodCheckbox')">
+                                    <div class="flex items-center">
+                                        <input id="foodCheckbox" type="checkbox" class="mr-2"> 
+                                        <span>Food (2)</span>
+                                    </div>
+                                    <svg id="foodIcon" class="w-4 h-4 dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                                <ul class="ml-6 mt-2 hidden" id="foodDropdown">
+                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 1 (3)</li>
+                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 2 (1)</li>
+                                </ul>
+                            </li>
+
+                            <!-- Furniture -->
+                            <li class="my-5">
+                                <div id="furnitureItem" class="flex items-center cursor-pointer" onclick="toggleCheckbox('furnitureItem', 'furnitureCheckbox')">
+                                    <input id="furnitureCheckbox" type="checkbox" class="mr-2"> 
+                                    <span>Furniture (9)</span>
+                                </div>
+                            </li>
+                            
+                            <!-- Decor -->
+                            <li class="my-5">
+                                <div id="decorItem" class="flex items-center justify-between cursor-pointer" onclick="toggleDropdown('decorDropdown', 'decorIcon', 'decorItem', 'decorCheckbox')">
+                                    <div class="flex items-center">
+                                        <input id="decorCheckbox" type="checkbox" class="mr-2"> 
+                                        <span>Decor (14)</span>
+                                    </div>
+                                    <svg id="decorIcon" class="w-4 h-4 dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                                <ul class="ml-6 mt-2 hidden" id="decorDropdown">
+                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 1 (3)</li>
+                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 2 (1)</li>
+                                </ul>
+                            </li>
+            
+                            <!-- Bakery -->
+                            <li class="my-5">
+                                <div id="bakeryItem" class="flex items-center justify-between cursor-pointer" onclick="toggleDropdown('bakeryDropdown', 'bakeryIcon', 'bakeryItem', 'bakeryCheckbox')">
+                                    <div class="flex items-center">
+                                        <input id="bakeryCheckbox" type="checkbox" class="mr-2"> 
+                                        <span>Bakery (3)</span>
+                                    </div>
+                                    <svg id="bakeryIcon" class="w-4 h-4 dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                                <ul class="ml-6 mt-2 hidden" id="bakeryDropdown">
+                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 1 (3)</li>
+                                    <li class="mt-2"><input type="checkbox" class="mr-2"> Sub-Category 2 (1)</li>
+                                </ul>
+                            </li>
+
+                            <!-- Category -->
+                            <li class="my-5">
+                                <div id="categoryItem" class="flex items-center cursor-pointer" onclick="toggleCheckbox('categoryItem', 'categoryCheckbox')">
+                                    <input id="categoryCheckbox" type="checkbox" class="mr-2"> 
+                                    <span>Category (2)</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- Filter brands -->
+                        <h2 class="text-sm font-semibold my-4 mt-10">Filter by Brands</h2>
+                        <ul class="my-4 px-4">
+                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 1 (13)</li>
+                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 2 (5)</li>
+                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 3 (2)</li>
+                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 4 (2)</li>
+                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 5 (4)</li>
+                            <li class="my-4"><input type="checkbox" class="mr-2"> Brand 6 (1)</li>
+                        </ul>
+
+                        <!-- Filter allergens -->
+                        <h2 class="text-sm font-semibold my-4 mt-8">Filter by Allergens</h2>
+
+                        <!-- Filter attribute -->
+                        <h2 class="text-sm font-semibold my-4">Filter by Attribute</h2>
+                    </div>
+                </div>
+    
+                <!-- Product Grid -->
+                <div class="md:w-3/4">    
+                    <!-- List of foods -->
+                    <div class="list-food">
+                        <div class="flex justify-between items-center my-10">
+                            <h2 class="text-sm font-regular">We’ve displayed 234 items  for you which relate to Chicken</h2>
+                            <div class="w-full max-w-60 sort-item text-sm">
+                                <label for="firstName" class="block text-xs font-medium text-gray-700 bg-white w-12 text-center relative top-[9px] ml-[10px]">Sort by</label>
+                                <select id="sort-by" class="p-2 border border-gray-300 rounded-xl w-full py-3">
+                                    <option value="recently-added">Recently added</option>
+                                    <option value="price-asc">Price: Low to High</option>
+                                    <option value="price-desc">Price: High to Low</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                            <!-- Item 1 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 100ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div>
+
+                             <!-- Item 2 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 200ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 3 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 300ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 4-->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 400ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 5 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 100ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 6 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 200ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 7 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 300ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 8 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 400ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 9 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 100ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 10 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 200ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 11 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 300ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+
+                             <!-- Item 12 -->
+                            <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 400ms;">
+                                <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
+                                <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
+                                <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                            </div> 
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="container mx-auto py-8">
+                            <div class="pagination items-center text-end flex justify-end">
+                                <ul class="border rounded-xl flex p-4 bg-white text-center">
+                                    <li>
+                                        <a href="#" class="prev px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500 disabled:opacity-50 disabled:pointer-events-none">«</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="page-num px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="page-num px-2.5 py-1.5  border ro unded-md text-gray-700 hover:bg-gray-100 hover:border-purple-500">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="page-num px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="page-num px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500">4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="page-num px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500">5</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="next px-2.5 py-1.5  border text-gray-700 hover:bg-gray-100 hover:border-purple-500 disabled:opacity-50 disabled:pointer-events-none">»</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- footer -->
+<footer class="relative bg-[#FFFFF6] py-12 mt-60">
+
+    <!-- Left Image -->
+    <div class="absolute inset-y-0 left-0 ">
+        <img src="images/item-1.png" alt="Left Image" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Right Image -->
+    <div class="absolute inset-y-0 right-0 ">
+        <img src="images/item-2.png" alt="Right Image" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-between space-y-10 md:space-y-0">
+            <!-- Product Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Product</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers for Cafes</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers for Restaurants</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Bakery Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Meat Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Industrial Kitchen</a></li>
+                </ul>
+            </div>
+
+            <!-- Explore Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Explore</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Categories</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Brands</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Company</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">About us</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Partners</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Advertise</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Join Us</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Subscribe Section -->
+            <div class="bg-[#F3F0F3] rounded-lg p-8 w-full md:w-4/12">
+                <h4 class="text-lg font-semibold mb-4">Subscribe</h4>
+                <form class="flex mb-4">
+                    <input type="email" placeholder="Email address" class="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none w-full">
+                    <button class="bg-purple-600 text-white px-4 py-2 rounded-r-lg">➔</button>
+                </form>
+                <p class="text-gray-600 mt-4">We send promotional tips and offers twice a month. Sign up for the good stuff.</p>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="mt-12 border-t border-gray-200 pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="text-gray-600">
+                <img src="images/top-logo.png" alt="" class="object-cover w-16">
+            </div>
+            <div class="flex space-x-10">
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Terms</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Privacy</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Cookies</a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex space-x-6">
+                <!-- LinkedIn Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            
+                <!-- Facebook Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            
+                <!-- Twitter Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- tab -->
+<script>
+
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            tabLinks.forEach(link => link.classList.remove('active', 'text-gray-900', 'border-black'));
+                
+            tabPanels.forEach(panel => panel.classList.add('hidden'));
+
+            this.classList.add('active', 'text-gray-900', 'border-black');
+
+            // Show the corresponding panel
+            const tabContentId = this.getAttribute('data-tab');
+            document.querySelector(`[data-tab-content="${tabContentId}"]`).classList.remove('hidden');
+            
+        });
+    });
+        
+</script>
+
+<!-- JS -->
+        
+<!-- navbar  -->
+<script>
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const menuIconPath = document.getElementById('menu-icon-path');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+
+    menuBtn.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('translate-x-full')) {
+            mobileMenu.classList.remove('translate-x-full', 'opacity-0');
+            mobileMenu.classList.add('translate-x-0', 'opacity-100');
+        } else {
+            mobileMenu.classList.add('translate-x-full', 'opacity-0');
+            mobileMenu.classList.remove('translate-x-0', 'opacity-100');
+        }
+        menuIconPath.setAttribute('d', mobileMenu.classList.contains('translate-x-full') ? 'M4 6h16M4 12h16m-7 6h7' : 'M6 18L18 6M6 6l12 12');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full', 'opacity-0');
+        mobileMenu.classList.remove('translate-x-0', 'opacity-100');
+        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+    });
+
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            navbar.classList.remove("navbar-hidden");
+            navbar.classList.add("navbar-visible");
+        } else {
+            navbar.classList.remove("navbar-visible");
+            navbar.classList.add("navbar-hidden");
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+</script>
+
+<!-- save JS -->
+<script>
+
+    function saveItem(button) {
+        // Change the button's appearance to indicate the item is saved
+        button.classList.remove('bg-black');
+        button.classList.add('bg-purple-500', 'cursor-not-allowed');
+    
+        // Change the button text to include a checkmark
+        button.innerHTML = '<i class="fas fa-check mr-2"></i> saved';
+        button.disabled = true;
+    
+        // Apply a scale effect to the button for a pop effect
+        button.classList.add('scale-105');
+    
+        // Reset the scale effect after a brief moment
+        setTimeout(() => {
+            button.classList.remove('scale-105');
+        }, 300); // The scale effect lasts for 300ms
+    }
+    
+</script>
+    
+<!-- dropdown decor -->
+<script>
+
+    document.getElementById('searchInput').addEventListener('input', function () {
+        let query = this.value.trim();
+        if (query === '') {
+            clearResults();  // Ensure results are cleared when input is empty
+        } else {
+            performSearch(query);
+        }
+    });
+
+    function performSearch(query) {
+        // Mock data to simulate search results
+        const data = [
+            'Chicken Soup',
+            'Chicken Salad',
+            'Grilled Chicken',
+            'Chicken Curry',
+            'Chicken Wings',
+            'Fried Chicken',
+            'Roast Chicken',
+        ];
+
+        // Filter results based on the query
+        let results = data.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+
+        displayResults(results);
+    }
+
+    function displayResults(results) {
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.innerHTML = ''; // Clear previous results
+
+        if (results.length > 0) {
+            results.forEach(result => {
+                const resultItem = document.createElement('div');
+                resultItem.textContent = result;
+                resultItem.className = "py-2 px-4 bg-gray-100 rounded-lg mb-2";
+                resultsContainer.appendChild(resultItem);
+            });
+        } else {
+            clearResults(); // Ensure results are cleared if no matches
+        }
+    }
+
+    function clearResults() {
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.innerHTML = ''; // Clear results
+    }
+
+</script>
+
+<!-- Search JS -->
+<script>
+
+   document.getElementById('searchInput').addEventListener('input', function () {
+    let query = this.value.trim();
+        if (query === '') {
+            clearResults();  // Ensure results are cleared when input is empty
+        } else {
+            performSearch(query);
+        }
+    });
+
+        function performSearch(query) {
+        const data = [
+            'Chicken Soup',
+            'Chicken Salad',
+            'Grilled Chicken',
+            'Chicken Curry',
+            'Chicken Wings',
+            'Fried Chicken',
+            'Roast Chicken',
+        ];
+
+        let results = data.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+
+        if (results.length > 0) {
+            displayResults(results);
+        } else {
+            displayNoResults(); 
+        }
+    }
+
+        function displayResults(results) {
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.innerHTML = ''; 
+
+        results.forEach(result => {
+            const resultItem = document.createElement('div');
+            resultItem.textContent = result;
+            resultItem.className = "py-2 px-4 bg-gray-100 rounded-lg mb-2";
+            resultsContainer.appendChild(resultItem);
+        });
+    }
+
+        function displayNoResults() {
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.innerHTML = ''; // Clear previous results
+        const noResultsItem = document.createElement('div');
+        noResultsItem.textContent = 'No results found';
+        noResultsItem.className = "py-2 px-4 bg-gray-100 rounded-lg mb-2 text-gray-500";
+        resultsContainer.appendChild(noResultsItem);
+    }
+
+        function clearResults() {
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.innerHTML = ''; 
+    }
+</script>
+
+
+<!-- animation card JS -->
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const items = document.querySelectorAll('.product');
+    
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('translate-y-10', 'opacity-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+    
+        items.forEach((item, index) => {
+            observer.observe(item);
+        });
+    });
+    
+</script>
+
+</body>
+
+</html>

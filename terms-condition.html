@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+   <!-- fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#FFFFF6] h-screen">
+
+<!-- Desktop -->
+<div id="navbar" class="fixed top-0 w-full bg-white shadow-lg z-50">
+    <nav class="flex items-center justify-between p-4 mx-auto">
+
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center"><img src="images/logo-nav.png" alt="Logo" class="h-8"></a>
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-6 text-black font-medium">
+            <a href="food-category.html" class="hover:text-black text-sm">Food</a>
+            <a href="#" class="hover:text-black text-sm">Drinks</a>
+            <a href="#" class="hover:text-black text-sm">Furniture</a>
+            <a href="#" class="hover:text-black text-sm">Linens & Textiles</a>
+            <a href="#" class="hover:text-black text-sm">Packaging & Disposable</a>
+            <a href="#" class="hover:text-black text-sm text-purple-500">More > ></a>
+        </div>
+
+        <!-- Search Bar and Company Dropdown -->
+        <div class="hidden md:flex items-center space-x-4">
+            <!-- Search Bar -->
+            <div class="relative">
+                <input type="text" placeholder="Search for stock and supplies" class="border p-2 rounded-lg pl-10 text-sm w-64">
+                <svg class="w-5 h-5 absolute top-2.5 left-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.415l4.243 4.243a1 1 0 01-1.414 1.415l-4.243-4.243zM8 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+
+            <!-- Company Dropdown -->
+            <div class="relative inline-block text-left">
+                <button id="company-dropdown-btn" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-[#f5f4e7] border border-transparent rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span class="flex items-center">
+                        <img src="" alt="" class="inline-block w-5 h-5 mr-3 bg-gray-300 rounded-full">
+                        <span class="text-gray-900">THE BAKERY COMPANY</span>
+                    </span>
+                    <svg class="ml-auto w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+
+                <!-- Dropdown Menu -->
+                <div id="company-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg">
+                    <ul class="py-2 text-sm text-gray-700">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE BAKERY COMPANY</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE PASTRY SHOP</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">CAFE DELIGHT</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">SWEET TREATS INC</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hamburger Icon for Mobile -->
+        <button id="menu-btn" class="block md:hidden ml-auto focus:outline-none">
+            <svg id="menu-icon" class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </nav>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-40 overflow-auto transform translate-x-full opacity-0 transition-transform transition-opacity duration-300 ease-in-out">
+    <div class="p-4 flex justify-end">
+        <button id="close-menu-btn" class="focus:outline-none">
+            <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <ul class="p-4 space-y-6">
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Foods</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Drinks</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Furniture</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Linens & Textiles</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Packaging & Disposable</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">register as a supplier</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">register as a buyer</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">advertise with us</a></li>
+        
+        <!-- Search Bar -->
+        <div class="relative">
+            <input type="text" placeholder="Search for stock and supplies" class="border p-2 rounded-lg pl-10 text-sm w-full">
+            <svg class="w-5 h-5 absolute top-2.5 left-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.415l4.243 4.243a1 1 0 01-1.414 1.415l-4.243-4.243zM8 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        
+        <!-- Company Dropdown -->
+        <div class="relative inline-block text-left mt-4">
+            <div>
+                <button id="company-dropdown-btn" class="inline-flex items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-[#f5f4e7] border border-transparent rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span class="flex items-center">
+                        <img src="" alt="" class="inline-block w-5 h-5 mr-3 bg-gray-300 rounded-full">
+                        <span class="text-gray-900">THE BAKERY COMPANY</span>
+                    </span>
+                    <svg class="ml-auto w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div id="company-dropdown-menu" class="hidden absolute right-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                <ul class="py-2 text-sm text-gray-700">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE BAKERY COMPANY</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE PASTRY SHOP</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">CAFE DELIGHT</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">SWEET TREATS INC</a></li>
+                </ul>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<header class="max-w-7xl mx-auto p-4">
+    <div class="mx-auto flex justify-between items-center hide px-4 sm:px-6 lg:px-8">
+      <nav class="flex space-x-8">
+        <a href="#" class="text-gray-800 hover:text-purple-600">advertise with us</a>
+        <a href="sign-up.html" class="text-gray-800 hover:text-purple-600">register as a supplier</a>
+        <a href="sign-up.html" class="text-gray-800 hover:text-purple-600">register as a buyer</a>
+      </nav>  
+      <div>
+        <a href="login.html" class="text-gray-800 hover:text-purple-600">login</a>
+      </div>
+    </div>
+     <!-- Logo -->
+    <a href="index.html"><img src="images/synclogo.png" alt="" class="m-full max-w-40 mx-auto object-cover mt-6"></a>
+</header>
+
+<!-- main wrapper -->
+<main class="main-wrapper">
+    <div class="container mx-auto max-w-7xl">
+        <!-- Main Content -->
+        <div class="dashboard-body">
+            <!-- About Content -->
+            <div id="about-content" class="content-section">
+               <div>          
+                    <p class="mb-4 text-sm">SYNC > Terms of Services</p>
+                    <h1 class="text-3xl font-semibold mb-8">Terms of Services</h1>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">These Terms of Service ("Terms") govern your use of Sync ("the Platform"), provided by Sync. ("we", "us", or "our"). By accessing or using the Platform, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use the Platform.</p>
+                     
+                    <h2 class="text-md font-bold mb-4">1. Platform Description</h2>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">Sync is an online marketplace that connects buyers ("Buyers") and suppliers ("Suppliers") within the hospitality industry. The Platform allows Buyers to search for and purchase products from Suppliers and facilitates communication between Buyers and Suppliers.</p>
+                 
+                    <h2 class="text-md font-bold mb-4">2. User Accounts</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">2.1 Registration to use the Platform, you must register and create an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.</p>
+                       
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">2.2 Account Security you are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
+                     
+                    <!-- Market place -->
+                    <h2 class="text-md font-bold mb-4">3. Marketplace Services</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">3.1 Listings suppliers may list products on the Platform. We provide the tools for Suppliers to create and manage these listings.</p>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">3.2 Communication the Platform includes a messaging system that allows Buyers and Suppliers to communicate directly.</p>
+                       
+                    <!-- Our Role -->
+                    <h2 class="text-md font-bold mb-4">4. Our Role</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">4.1 Intermediary Service sync acts as an intermediary platform to facilitate connections and transactions between Buyers and Suppliers. We do not own, create, sell, resell, provide, control, manage, offer, deliver, or supply any products listed on the Platform.</p>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">4.2 No Endorsement we do not endorse any Supplier or Buyer, nor do we guarantee the quality, safety, or legality of any products listed, the truth or accuracy of any listings, or the ability of Suppliers to sell products or Buyers to pay for products.</p>
+                       
+                    <!-- User Responsibilities -->
+                    <h2 class="text-md font-bold mb-4">5. User Responsibilities</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">5.1 Compliance with Laws you agree to comply with all applicable laws, regulations, and industry standards when using the Platform.</p>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">5.2 Accuracy of Listings suppliers are responsible for ensuring that their listings are accurate, complete, and not misleading.</p>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">5.3 Due Diligence buyers and Suppliers are responsible for conducting their own due diligence before entering into any transactions or financial agreements. Sync is not responsible for verifying the identity, legitimacy, or creditworthiness of any user.</p>
+                       
+                    <!-- Payments -->
+                    <h2 class="text-md font-bold mb-4">6. Payments</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">6.1 Payment Processing: Payments between Buyers and Suppliers are processed through third-party payment processors. We do not handle any payments directly.</p>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">6.2 Payment Disputes: Any payment disputes must be resolved directly between the Buyer and the Supplier. Sync is not responsible for any payment issues, including but not limited to chargebacks, refunds, or fraudulent transactions.</p>
+                       
+                    <!-- Disclaimers and Limitation Liability -->
+                    <h2 class="text-md font-bold mb-4">7. Disclaimers and Limitation of Liability</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">7.1 No Warranty: The Platform is provided on an "as is" and "as available" basis. We make no warranties, express or implied, regarding the Platform, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">7.2 No Liability for User Conduct: We are not responsible for the conduct of any user on or off the Platform. You acknowledge that any legal recourse or remedy arising from interactions with other users must be sought directly from those users.</p>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">7.3 Limitation of Liability: To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from (a) your use or inability to use the Platform; (b) any conduct or content of any user or third party on the Platform; (c) any content obtained from the Platform; and (d) unauthorised access, use, or alteration of your transmissions or content.</p>
+                       
+                    <!-- Identification -->
+                    <h2 class="text-md font-bold mb-4">8. Indemnification</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">You agree to indemnify, defend, and hold harmless Sync and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including without limitation reasonable legal and accounting fees, arising out of or in any way connected with your access to or use of the Platform, your violation of these Terms, or your interactions with other users.</p>
+                       
+                    <!-- Termination -->
+                    <h2 class="text-md font-bold mb-4">9. Termination</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">We may terminate or suspend your account and access to the Platform, without prior notice or liability, for any reason, including but not limited to if you breach these Terms.</p>
+                       
+                    <!-- Governing Law -->
+                    <h2 class="text-md font-bold mb-4">10. Governing Law</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">These Terms shall be governed and construed in accordance with the laws of England and Wales, without regard to its conflict of law provisions.</p>
+
+                    <!-- Changes to Terms -->
+                    <h2 class="text-md font-bold mb-4">11. Changes to Terms</h2>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+
+                    <!-- Contact Us -->
+                    <h2 class="text-md font-bold mb-4">12. Contact Us</h2>
+                    <p class="mb-6 text-gray-700 leading-5 text-sm">If you have any questions about these Terms, please contact us at <a href="#" class="text-purple-500 underline">legal@syncing.to</a></p>
+                    <p class="mb-4 text-gray-700 leading-5 text-sm">By using Sync, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+                </div>
+            </div>
+       </div>
+   </div>
+</main>
+
+<!-- footer -->
+<footer class="relative bg-[#FFFFF6] py-12 mt-40">
+
+    <!-- Left Image -->
+    <div class="absolute inset-y-0 left-0 ">
+        <img src="images/item-1.png" alt="Left Image" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Right Image -->
+    <div class="absolute inset-y-0 right-0 ">
+        <img src="images/item-2.png" alt="Right Image" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-between space-y-10 md:space-y-0">
+            <!-- Product Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Product</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers for Cafes</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers for Restaurants</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Bakery Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Meat Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Industrial Kitchen</a></li>
+                </ul>
+            </div>
+
+            <!-- Explore Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Explore</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Categories</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Brands</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Company</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">About us</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Partners</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Advertise</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Join Us</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Subscribe Section -->
+            <div class="bg-[#F3F0F3] rounded-lg p-8 w-full md:w-4/12">
+                <h4 class="text-lg font-semibold mb-4">Subscribe</h4>
+                <form class="flex mb-4">
+                    <input type="email" placeholder="Email address" class="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none w-full">
+                    <button class="bg-purple-600 text-white px-4 py-2 rounded-r-lg">➔</button>
+                </form>
+                <p class="text-gray-600 mt-4">We send promotional tips and offers twice a month. Sign up for the good stuff.</p>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="mt-12 border-t border-gray-200 pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="text-gray-600">
+                <img src="images/top-logo.png" alt="" class="object-cover w-16">
+            </div>
+            <div class="flex space-x-10">
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Terms</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Privacy</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Cookies</a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex space-x-6">
+                <!-- LinkedIn Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            
+                <!-- Facebook Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            
+                <!-- Twitter Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS -->
+       
+<!-- navbar  -->
+<script>
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const menuIconPath = document.getElementById('menu-icon-path');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+
+    menuBtn.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('translate-x-full')) {
+            mobileMenu.classList.remove('translate-x-full', 'opacity-0');
+            mobileMenu.classList.add('translate-x-0', 'opacity-100');
+        } else {
+            mobileMenu.classList.add('translate-x-full', 'opacity-0');
+            mobileMenu.classList.remove('translate-x-0', 'opacity-100');
+        }
+        menuIconPath.setAttribute('d', mobileMenu.classList.contains('translate-x-full') ? 'M4 6h16M4 12h16m-7 6h7' : 'M6 18L18 6M6 6l12 12');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full', 'opacity-0');
+        mobileMenu.classList.remove('translate-x-0', 'opacity-100');
+        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+    });
+
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            navbar.classList.remove("navbar-hidden");
+            navbar.classList.add("navbar-visible");
+        } else {
+            navbar.classList.remove("navbar-visible");
+            navbar.classList.add("navbar-hidden");
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+</script>
+
+
+</body>
+
+</html>

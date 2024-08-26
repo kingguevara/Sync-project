@@ -1,0 +1,1344 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+  <style>
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden; 
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .carousel-slide-container {
+        flex: 0 0 calc(100% / 5); 
+  p-2.5 overflow-visible     }
+
+    .carousel-slide {
+        max-width: 20rem;
+        min-width: 5rem;
+        flex: 1 1 auto;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 1080px) {
+        .carousel-slide {
+            min-width: 17rem!important;
+        }
+    }
+
+</style>
+
+</head>
+
+<body class="bg-[#FFFFF6] h-screen">
+   
+<!-- Desktop -->
+<div id="navbar" class="fixed top-0 w-full bg-white shadow-lg z-50">
+    <nav class="flex items-center justify-between p-4 mx-auto">
+
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center"><img src="images/logo-nav.png" alt="Logo" class="h-8"></a>
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-6 text-black font-medium">
+            <a href="food-category.html" class="hover:text-black text-sm">Food</a>
+            <a href="#" class="hover:text-black text-sm">Drinks</a>
+            <a href="#" class="hover:text-black text-sm">Furniture</a>
+            <a href="#" class="hover:text-black text-sm">Linens & Textiles</a>
+            <a href="#" class="hover:text-black text-sm">Packaging & Disposable</a>
+            <a href="#" class="hover:text-black text-sm text-purple-500">More > ></a>
+        </div>
+
+        <!-- Search Bar and Company Dropdown -->
+        <div class="hidden md:flex items-center space-x-4">
+            <!-- Search Bar -->
+            <div class="relative">
+                <input type="text" placeholder="Search for stock and supplies" class="border p-2 rounded-lg pl-10 text-sm w-64">
+                <svg class="w-5 h-5 absolute top-2.5 left-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.415l4.243 4.243a1 1 0 01-1.414 1.415l-4.243-4.243zM8 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+
+            <!-- Company Dropdown -->
+            <div class="relative inline-block text-left">
+                <button id="company-dropdown-btn" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-[#f5f4e7] border border-transparent rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span class="flex items-center">
+                        <img src="" alt="" class="inline-block w-5 h-5 mr-3 bg-gray-300 rounded-full">
+                        <span class="text-gray-900">THE BAKERY COMPANY</span>
+                    </span>
+                    <svg class="ml-auto w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+
+                <!-- Dropdown Menu -->
+                <div id="company-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg">
+                    <ul class="py-2 text-sm text-gray-700">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE BAKERY COMPANY</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE PASTRY SHOP</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">CAFE DELIGHT</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">SWEET TREATS INC</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hamburger Icon for Mobile -->
+        <button id="menu-btn" class="block md:hidden ml-auto focus:outline-none">
+            <svg id="menu-icon" class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </nav>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-40 overflow-auto transform translate-x-full opacity-0 transition-transform transition-opacity duration-300 ease-in-out">
+    <div class="p-4 flex justify-end">
+        <button id="close-menu-btn" class="focus:outline-none">
+            <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <ul class="p-4 space-y-6">
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Foods</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Drinks</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Furniture</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Linens & Textiles</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">Packaging & Disposable</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">register as a supplier</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">register as a buyer</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-gray-900 text-lg">advertise with us</a></li>
+        
+        <!-- Search Bar -->
+        <div class="relative">
+            <input type="text" placeholder="Search for stock and supplies" class="border p-2 rounded-lg pl-10 text-sm w-full">
+            <svg class="w-5 h-5 absolute top-2.5 left-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.415l4.243 4.243a1 1 0 01-1.414 1.415l-4.243-4.243zM8 14a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        
+        <!-- Company Dropdown -->
+        <div class="relative inline-block text-left mt-4">
+            <div>
+                <button id="company-dropdown-btn" class="inline-flex items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-[#f5f4e7] border border-transparent rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span class="flex items-center">
+                        <img src="" alt="" class="inline-block w-5 h-5 mr-3 bg-gray-300 rounded-full">
+                        <span class="text-gray-900">THE BAKERY COMPANY</span>
+                    </span>
+                    <svg class="ml-auto w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div id="company-dropdown-menu" class="hidden absolute right-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                <ul class="py-2 text-sm text-gray-700">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE BAKERY COMPANY</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">THE PASTRY SHOP</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">CAFE DELIGHT</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">SWEET TREATS INC</a></li>
+                </ul>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<header class="max-w-7xl mx-auto p-4">
+    <div class="mx-auto flex justify-between items-center hide px-4 sm:px-6 lg:px-8">
+      <nav class="flex space-x-8">
+        <a href="#" class="text-gray-800 hover:text-purple-600">advertise with us</a>
+        <a href="sign-up.html" class="text-gray-800 hover:text-purple-600">register as a supplier</a>
+        <a href="sign-up.html" class="text-gray-800 hover:text-purple-600">register as a buyer</a>
+      </nav>  
+      <div>
+        <a href="login.html" class="text-gray-800 hover:text-purple-600">login</a>
+      </div>
+    </div>
+     <!-- Logo -->
+    <a href="index.html"><img src="images/synclogo.png" alt="" class="m-full max-w-40 mx-auto object-cover mt-6"></a>
+</header>
+
+<!-- Main content -->
+<main class="main-wrapper max-w-7xl mx-auto overflow-hidden">
+    <div class="container mx-auto py-10">   
+        <div class="bg-[url('images/bg-body.png')] bg-no-repeat w-full -mt-16">
+            
+            <!-- Search bar -->
+            <div class="flex items-center mt-10 justify-center mb-4 relative">   
+                <div class="relative w-full max-w-3xl">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-400 flex justify-center items-center"></i>
+                    <input type="text" placeholder="Search for stock and supplies" class="w-full py-4 pl-10 pr-4 border border-gray-200 rounded-lg" />
+                </div>
+                <!-- Filter  -->
+                <button class="flex items-center justify-center py-4 px-5 bg-white border border-gray-200 rounded-lg ml-3.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4M12 7v10M10 21h4M6 7h12M6 17h12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row items-center text-center md:text-left py-8">
+                <h1 class="text-3xl font-bold text-start transform translate-x-[-50px] animate-fade-slide">Get your supplies for Restaurants, Coffee Shops, Bars and more</h1>
+                <div class="-right ml-36 text-left right-text transform translate-x-[-50px] animate-fade-slide-right">
+                    <p class="text-gray-600 mt-4 sm:text-center">No need for search engines and countless websites. Sync is a hospitality-focused platform reducing your research so you can focus on serving your customers.</p>
+                    <div class="flex space-x-4 mt-6 sm:justify-center flex-wrap">
+                        <button class="mb-4 text-sm bg-purple-500 text-white py-2 px-4 rounded-xl transition-all duration-500 ease-in-out hover:scale-105" onclick="window.location.href='sign-up.html'">register a buyer account</button>
+                        <button class="mb-4 text-sm  border border-black text-black py-2 px-4 rounded-xl transition-all duration-500 ease-in-out hover:scale-105" onclick="window.location.href='sign-up.html'">register as a supplier</button>
+                    </div>
+                </div>
+            </div>  
+
+            <!-- Slider -->
+            <div class="max-w-7xl mx-auto py-8 px-6">
+                <div class="max-w-6xl mx-auto py-8 px-6">
+                    <div class="relative max-w-full mx-auto" id="slider-container">
+                      <div id="slider" class="flex overflow-x-scroll scroll-smooth snap-x snap-mandatory space-x-4 ">
+
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-xl overflow-hidden ">
+                            <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+
+                        
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-lg overflow-hidden">
+                                <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-lg overflow-hidden">
+                                <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-lg overflow-hidden">
+                                <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-lg overflow-hidden">
+                                <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-lg overflow-hidden">
+                                <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-lg overflow-hidden">
+                                <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-lg overflow-hidden">
+                                <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="food-category.html" class="flex-none w-52 snap-center p-4 rounded-lg bg-white shadow-lg overflow-hidden">
+                                <div class="flex flex-col items-start transform transition-transform duration-700 ease-in-out hover:scale-110">
+                                <p class="text-xl font-medium">Foods</p>
+                                <div class="relative w-full flex justify-center">
+                                    <!-- Background circle behind the image, positioned on the right -->
+                                    <div class="absolute w-40 h-40 bg-green-100 rounded-full right-[-25px] top-[30px]"></div>
+                                    <img src="images/rfood1.png" alt="Foods" class="relative z-10 w-24 object-cover ml-12 h-auto">
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Add more items as needed -->
+                      </div>
+                  
+                      <!-- Prev/Next Arrows -->
+                      <button id="prev" class="absolute -left-[50px] top-1/2 transform -translate-y-1/2  bg-opacity-70 text-xl p-2 z-20 cursor-pointer">❮</button>
+                      <button id="next" class="absolute -right-[50px] top-1/2 transform -translate-y-1/2  bg-opacity-70 text-xl p-2 z-20 cursor-pointer">❯</button>
+                  
+                      <!-- Navigation Dots -->
+                      <div id="dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+                        <!-- Dots will be generated by JavaScript based on the number of items -->
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <!-- Featured Items -->
+            <div class="py-8">
+                <h2 class="text-2xl font-bold">Featured Items</h2>
+                <div class="carousel-container-2 relative">
+                    <div class="carousel-container relative">
+                        <div class="carousel-track flex transition-transform duration-300 ease-in-out">
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+                    
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+                    
+                            <!-- Add more slides as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- tabs link-->
+        <div class="py-10">
+            <div class="rounded-lg bg-[#F9F9EF]">
+                <div class="text-sm font-medium text-gray-500 overflow-auto">
+                    <ul id="tabs" class="flex text-lg font-medium items-center justify-between py-5 pl-6 min-w-[500px] overflow-x-auto whitespace-nowrap scrollbar-hide">
+                      <li class="px-5"><a href="#" data-tab="all" class="tab-link active text-gray-900 border-b-2 border-black font-semibold">All</a></li>
+                      <li class="px-5"><a href="#" data-tab="food" class="tab-link font-semibold">Food</a></li>
+                      <li class="px-5"><a href="#" data-tab="drinks" class="py-8 tab-link font-semibold">Drinks</a></li>
+                      <li class="px-5"><a href="#" data-tab="equipment" class="py-8 tab-link font-semibold">Equipment</a></li>
+                      <li class="px-5"><a href="#" data-tab="furniture" class="py-8 tab-link font-semibold">Furniture</a></li>
+                      <li class="px-5"><a href="#" data-tab="tableware" class="py-8 tab-link font-semibold">Tableware</a></li>
+                      <li class="px-5"><a href="#" data-tab="cleaning" class="py-8 tab-link font-semibold">Cleaning</a></li>
+                      <li class="px-5"><a href="#" data-tab="health-safety" class="tab-link font-semibold">Health & Safety</a></li>
+                      <li class="ml-24"><a href="#" data-tab="health-safety" class="py-5 px-7 tab-link font-semibold bg-[#EBEBD7] rounded-lg">browse more</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Tab Content -->
+            <div id="tab-content" class="mt-10">
+                <div class="tab-panel" data-tab-content="all">
+                    <h2 class="text-xl font-bold mb-4">Recent Promotions</h2>
+                    <!-- row 1 -->
+                    <div class="carousel-container relative">
+                        <div class="carousel-track flex transition-transform duration-300 ease-in-out">
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+                    
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+                    
+                            <!-- Add more slides as needed -->
+                        </div>
+                    </div>
+
+
+                    <!-- row 2 -->
+                    <div class="carousel-container relative">
+                        <div class="carousel-track flex transition-transform duration-300 ease-in-out">
+        
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+                    
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide-container p-2.5 overflow-visible">
+                                <div class="carousel-slide bg-white p-4 rounded-lg shadow product min-w-32 max-w-56">
+                                    <img class="slide-image w-full max-w-28 mx-auto object-cover transition-transform transform" src="images/lata.png" alt="">
+                                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+                                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                                </div>
+                            </div>
+                    
+                            <!-- Add more slides as needed -->
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Food Tab Content -->
+                <div class="tab-panel hidden" data-tab-content="food">
+                    <h2 class="text-xl font-bold mb-4">Food Promotions</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out scroll-animate delay-300 featured-item">
+
+                        <!-- Food items here -->
+
+                        <!-- food 1 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg card-five">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div>   
+
+                        <!-- food 2 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg card-five">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- food 3 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg card-five">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- food 4 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg card-five">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                        
+                        <!-- food 5 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg card-five">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- drinks tab content -->
+                <div class="tab-panel hidden" data-tab-content="drinks">
+                    <h2 class="text-xl font-bold mb-4">Drinks</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out scroll-animate delay-300 featured-item">
+                        <!-- drinks items here -->
+
+                        <!-- drink 1 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                    <!-- drink 2 -->
+                    <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- drink 3 -->
+                    <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- drink 4 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                        <!-- drink 5 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- equipment tab content -->
+                <div class="tab-panel hidden" data-tab-content="equipment">
+                    <h2 class="text-xl font-bold mb-4">Equipment</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out scroll-animate delay-300 featured-item">
+                        <!-- equipments here -->
+                        
+                        <!-- equipment 1 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- equipment 2 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- equipment 3 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- equipment 4 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- equipment 5 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+
+                        <!-- equipment 6 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg" data-delay="600">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- furniture content -->
+                <div class="tab-panel hidden" data-tab-content="furniture">
+                    <h2 class="text-xl font-bold mb-4">Furnitures</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out scroll-animate delay-300 featured-item">
+                        <!-- furniture 1 -->
+                        <div class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg" data-delay="100">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- Tableware content -->
+                <div class="tab-panel hidden" data-tab-content="tableware">
+                    <h2 class="text-xl font-bold mb-4">Tableware</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out scroll-animate delay-300 featured-item">
+                        <!-- tableware 1 -->
+                        <div  class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg" data-delay="100">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- cleaning content -->
+                <div class="tab-panel hidden" data-tab-content="cleaning">
+                    <h2 class="text-xl font-bold mb-4">Cleaning</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out scroll-animate delay-300 featured-item">
+                        <!-- cleaning 1 -->
+                        <div  class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg" data-delay="100">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- health & safety content -->
+                <div class="tab-panel hidden" data-tab-content="health-safety">
+                    <h2 class="text-xl font-bold mb-4">Healthy</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out scroll-animate delay-300 featured-item">
+                        <!-- healthy 1 -->
+                        <div  class="card mb-3 bg-white p-4 rounded-lg shadow opacity-0 transition-transform transform hover:scale-105 hover:shadow-lg" data-delay="100">
+                            <img src="images/product1.png" alt="Product" class="w-full object-cover">
+                            <h3 class="text-xs text-purple-500 mb-2">Alvarez Camacho</h3>
+                            <h3 class="text-lg font-semibold h-10 leading-6 ">Pasteurized egg yolk Ovopak</h3>
+                            <p class="text-black mt-2 text-sm leading-5">Pasteurized egg yolk without additives or...</p> 
+                            <p class="text-black mt-2 p-1.5 border border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                            <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- blogs -->
+        <div class="py-8">
+            <h2 class="text-2xl font-semibold mb-6">The Weekly News</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6  transform translate-y-10 transition-all duration-700 ease-in-out scroll-animate delay-300">
+
+                <!-- BLOG 1 -->
+                <a href="blog-content--one.html" class="lg:h-72 h-full featured-article bg-white rounded-md shadow-lg overflow-hidden p-5 transform transition-transform duration-700 ease-in-out hover:scale-105">
+                    <img src="images/blognew1.png" alt="Cafe greenery" class="w-full h-40 object-cover rounded-md">
+                    <div class="">
+                        <h3 class="text-lg font-bold mb-2 leading-6 mt-2">How to style your new cafe with greenery that doesn’t feel like every other green business</h3>
+                        <p class="text-sm sub-text mb-2">written by Triveni on 14th July 2024</p>
+                    </div>
+                </a>
+
+                <!-- BLOG 2 -->
+                <a href="blog-content--one.html" class="lg:h-72 h-full featured-article bg-white rounded-md shadow-lg overflow-hidden p-5 transform transition-transform duration-700 ease-in-out hover:scale-105">
+                    <img src="images/strawberry.png" alt="Cafe greenery" class="w-full md:h-40 object-cover rounded-md">
+                    <div class="">
+                        <h3 class="text-lg font-bold mb-2 leading-6 mt-2">How to style your new cafe with greenery that doesn’t feel like every other green business</h3>
+                        <p class="text-sm sub-text mb-2">written by Triveni on 14th July 2024</p>
+                    </div>
+                </a>    
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- footer -->
+<footer class="relative bg-[#FFFFF6] py-12 mt-40">
+
+    <!-- Left Image -->
+    <div class="absolute inset-y-0 left-0 ">
+        <img src="images/item-1.png" alt="Left Image" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Right Image -->
+    <div class="absolute inset-y-0 right-0 ">
+        <img src="images/item-2.png" alt="Right Image" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-between space-y-10 md:space-y-0">
+            <!-- Product Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Product</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers for Cafes</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers for Restaurants</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Bakery Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Meat Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Industrial Kitchen</a></li>
+                </ul>
+            </div>
+
+            <!-- Explore Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Explore</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Categories</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Brands</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Company</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">About us</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Partners</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Advertise</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Join Us</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Subscribe Section -->
+            <div class="bg-[#F3F0F3] rounded-lg p-8 w-full md:w-4/12">
+                <h4 class="text-lg font-semibold mb-4">Subscribe</h4>
+                <form class="flex mb-4">
+                    <input type="email" placeholder="Email address" class="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none w-full">
+                    <button class="bg-purple-600 text-white px-4 py-2 rounded-r-lg">➔</button>
+                </form>
+                <p class="text-gray-600 mt-4">We send promotional tips and offers twice a month. Sign up for the good stuff.</p>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="mt-12 border-t border-gray-200 pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="text-gray-600">
+                <img src="images/top-logo.png" alt="" class="object-cover w-16">
+            </div>
+            <div class="flex space-x-10">
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Terms</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Privacy</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Cookies</a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex space-x-6">
+                <!-- LinkedIn Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            
+                <!-- Facebook Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            
+                <!-- Twitter Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS -->
+
+<!-- tabs -->
+<script>
+
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Remove active class from all links
+            tabLinks.forEach(link => link.classList.remove('active', 'text-gray-900', 'border-black'));
+                
+            // Hide all panels
+            tabPanels.forEach(panel => panel.classList.add('hidden'));
+
+            // Add active class to clicked link
+            this.classList.add('active', 'text-gray-900', 'border-black');
+
+            // Show the corresponding panel
+            const tabContentId = this.getAttribute('data-tab');
+            document.querySelector(`[data-tab-content="${tabContentId}"]`).classList.remove('hidden');
+            
+        });
+    });
+        
+</script>
+
+<!-- food slider -->
+<script>
+
+const slider = document.getElementById('slider');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+const dotsContainer = document.getElementById('dots');
+
+// Configuration
+const imagesPerSlide = 5;
+const totalItems = slider.querySelectorAll('.flex-none').length;
+const totalDots = Math.ceil(totalItems / imagesPerSlide);
+const slideWidth = slider.querySelector('.flex-none').clientWidth;
+
+// Generate dots based on the number of slides
+for (let i = 0; i < totalDots; i++) {
+  const dot = document.createElement('span');
+  dot.className = 'dot w-3 h-3 bg-transparent rounded-full border border-white cursor-pointer';
+  dotsContainer.appendChild(dot);
+
+  // Add click event to each dot
+  dot.addEventListener('click', () => {
+    scrollToSlide(i);
+  });
+}
+
+const dots = document.querySelectorAll('#dots .dot');
+
+// Update active dot based on current slide
+function updateDots(index) {
+  dots.forEach((dot, i) => {
+    if (i === index) {
+      dot.classList.add('bg-white');
+    } else {
+      dot.classList.remove('bg-white');
+    }
+  });
+}
+
+// Scroll to a specific slide
+function scrollToSlide(index) {
+  const scrollPosition = index * slideWidth * imagesPerSlide;
+  slider.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+  updateDots(index);
+}
+
+// Set up next and prev button functionality
+let currentIndex = 0;
+
+nextButton.addEventListener('click', () => {
+  if (currentIndex < totalDots - 1) {
+    currentIndex++;
+    scrollToSlide(currentIndex);
+  }
+});
+
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    scrollToSlide(currentIndex);
+  }
+});
+
+// Initialize the first dot as active
+updateDots(currentIndex);
+        
+</script>
+
+<!-- navbar  -->
+<script>
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const menuIconPath = document.getElementById('menu-icon-path');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+
+    menuBtn.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('translate-x-full')) {
+            mobileMenu.classList.remove('translate-x-full', 'opacity-0');
+            mobileMenu.classList.add('translate-x-0', 'opacity-100');
+        } else {
+            mobileMenu.classList.add('translate-x-full', 'opacity-0');
+            mobileMenu.classList.remove('translate-x-0', 'opacity-100');
+        }
+        menuIconPath.setAttribute('d', mobileMenu.classList.contains('translate-x-full') ? 'M4 6h16M4 12h16m-7 6h7' : 'M6 18L18 6M6 6l12 12');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full', 'opacity-0');
+        mobileMenu.classList.remove('translate-x-0', 'opacity-100');
+        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+    });
+
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            navbar.classList.remove("navbar-hidden");
+            navbar.classList.add("navbar-visible");
+        } else {
+            navbar.classList.remove("navbar-visible");
+            navbar.classList.add("navbar-hidden");
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+</script>
+
+<!-- baker company dropdown -->
+<script>
+
+    const dropdownBtn = document.getElementById('company-dropdown-btn');
+    const dropdownMenu = document.getElementById('company-dropdown-menu');
+
+    dropdownBtn.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+
+    });
+
+    window.addEventListener('click', (e) => {
+        if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+
+        }
+
+    });
+
+</script>
+
+<!-- animation card JS opacity -->
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const items = document.querySelectorAll('.product');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('translate-y-10', 'opacity-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        items.forEach((item, index) => {
+            observer.observe(item);
+        });
+    });
+
+</script>
+
+<!-- animation -->
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.getAttribute('data-delay');
+                entry.target.style.transitionDelay = `${delay}ms`;
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+});
+
+</script>
+
+<!-- save / unsave item JS -->
+<script>
+    
+    function toggleSave(button) {
+        if (button.classList.contains('bg-black')) {
+            button.classList.remove('bg-black');
+            button.classList.add('bg-purple-500', 'cursor-not-allowed');
+            button.innerHTML = '<i class="fas fa-check mr-2"></i> saved';
+        } else {
+            button.classList.remove('bg-purple-500', 'cursor-not-allowed');
+            button.classList.add('bg-black');
+            button.innerHTML = '+ wishlist';
+        }
+    
+        button.classList.add('scale-105');
+        setTimeout(() => {
+            button.classList.remove('scale-105');
+        }, 300);
+    }
+
+</script>
+
+<!-- card slide mobile row1 -->
+<script>
+    document.querySelectorAll('.carousel-container').forEach(container => {
+        let startX, currentX, isSwiping = false;
+        let currentSlideIndex = 0;
+
+        const slideContainers = container.querySelectorAll('.carousel-slide-container');
+        const carouselTrack = container.querySelector('.carousel-track');
+
+        function setCarouselPosition(index) {
+            const slideWidth = slideContainers[index].clientWidth;
+            let totalWidth = 0;
+            for (let i = 0; i < index; i++) {
+                totalWidth += slideContainers[i].clientWidth;
+            }
+            carouselTrack.style.transform = `translateX(-${totalWidth}px)`;
+        }
+
+        function onTouchStart(event) {
+            startX = event.touches[0].clientX;
+            isSwiping = true;
+        }
+
+        function onTouchMove(event) {
+            if (!isSwiping) return;
+            currentX = event.touches[0].clientX;
+            const moveX = startX - currentX;
+
+            let totalWidth = 0;
+            for (let i = 0; i < currentSlideIndex; i++) {
+                totalWidth += slideContainers[i].clientWidth;
+            }
+
+            // Move the carousel track as the user swipes
+            carouselTrack.style.transform = `translateX(${-totalWidth - moveX}px)`;
+        }
+
+        function onTouchEnd() {
+            isSwiping = false;
+            const endX = currentX;
+            const distanceMoved = startX - endX;
+
+            // Determine if the swipe was significant enough to change slides
+            if (distanceMoved > slideContainers[currentSlideIndex].clientWidth / 4) {
+                currentSlideIndex = Math.min(currentSlideIndex + 1, slideContainers.length - 1);
+            } else if (distanceMoved < -slideContainers[currentSlideIndex].clientWidth / 4) {
+                currentSlideIndex = Math.max(currentSlideIndex - 1, 0);
+            }
+
+            // Snap to the nearest slide
+            setCarouselPosition(currentSlideIndex);
+        }
+
+        carouselTrack.addEventListener('touchstart', onTouchStart);
+        carouselTrack.addEventListener('touchmove', onTouchMove);
+        carouselTrack.addEventListener('touchend', onTouchEnd);
+
+        window.addEventListener('resize', () => setCarouselPosition(currentSlideIndex)); // Update the carousel on window resize
+    });
+</script>   
+
+
+</body>
+
+</html>
