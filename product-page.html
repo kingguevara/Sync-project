@@ -165,7 +165,7 @@
 <!-- Main content -->
 <main class="main-wrapper">
     <div class="container py-10 mx-auto">
-        <div class="grid grid-cols-2 overflow-hidden max-w-6xl">
+        <div class="grid md:grid-cols-2 grid-cols-1 overflow-hidden max-w-6xl">
             <!-- Left image -->
             <div id="lightbox-container" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
                 <div id="lightbox-content" class="max-w-screen-md w-full p-4">
@@ -173,32 +173,33 @@
                 </div>
             </div>
             
+            <!-- slider lightbox -->
             <div class="slider-container relative">
-                <div id="main-image" class="w-full h-86 bg-gray-200 flex items-center justify-center h-80">
-                    <img id="displayed-image" src="images/product-image.png" alt="Main Image" class="h-full w-full object-cover">
+                <div id="main-image" class="w-full h-auto bg-gray-200 flex items-center justify-center overflow-hidden">
+                    <img id="displayed-image" src="images/product-image.png" alt="Main Image" class="h-full w-full transform transition-transform duration-700 ease-in-out hover:scale-105">
                 </div>
                 
-                <div id="thumbnails" class="thumbnails mt-4 flex overflow-hidden relative">
-                    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2  text-white p-2">
-                        &lt;
-                    </button>
-                    <div id="slides" class="flex">
-                        <img onclick="selectImage(0)" src="images/product-image.png" alt="Thumbnail 1" class="thumbnail h-8 w-auto cursor-pointer mx-2">
-                        <img onclick="selectImage(1)" src="images/slide2.png" alt="Thumbnail 2" class="thumbnail h-8 w-auto cursor-pointer mx-2">
-                        <img onclick="selectImage(2)" src="images/slide3.png" alt="Thumbnail 3" class="thumbnail h-8 w-auto cursor-pointer mx-2">
-                        <img onclick="selectImage(3)" src="images/slide4.png" alt="Thumbnail 4" class="thumbnail h-8 w-auto cursor-pointer mx-2">
-                        <img onclick="selectImage(4)" src="images/slide5.png" alt="Thumbnail 5" class="thumbnail h-8 w-auto cursor-pointer mx-2">
-                        <img onclick="selectImage(5)" src="images/product-image.png" alt="Thumbnail 6" class="thumbnail h-8 w-auto cursor-pointer mx-2">
-                        <img onclick="selectImage(6)" src="images/slide2.png" alt="Thumbnail 7" class="thumbnail h-8 w-auto cursor-pointer mx-2">
+                <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white z-10">
+                    &lt;
+                </button>
+                <div id="thumbnails" class="thumbnails mt-4 flex overflow-hidden relative mx-5">
+                    <div id="slides" class="flex transition-transform duration-300 ease-in-out">
+                        <img onclick="selectImage(0)" src="images/product-image.png" alt="Thumbnail 1" class="thumbnail h-10 min-w-32 cursor-pointer mx-1 rounded-lg object-cover">
+                        <img onclick="selectImage(1)" src="images/slide2.png" alt="Thumbnail 2" class="thumbnail h-10 w-auto cursor-pointer mx-1 rounded-lg object-cover">
+                        <img onclick="selectImage(2)" src="images/slide3.png" alt="Thumbnail 3" class="thumbnail h-10 w-auto cursor-pointer mx-1 rounded-lg object-cover">
+                        <img onclick="selectImage(3)" src="images/slide4.png" alt="Thumbnail 4" class="thumbnail h-10 w-auto cursor-pointer mx-1 rounded-lg object-cover">
+                        <img onclick="selectImage(4)" src="images/slide5.png" alt="Thumbnail 5" class="thumbnail h-10 w-auto cursor-pointer mx-1 rounded-lg object-cover">
+                        <img onclick="selectImage(5)" src="images/product-image.png" alt="Thumbnail 6" class="thumbnail h-10 min-w-32 cursor-pointer mx-1 rounded-lg object-cover">
+                        <img onclick="selectImage(6)" src="images/slide2.png" alt="Thumbnail 7" class="thumbnail h-10 w-auto cursor-pointer mx-1 rounded-lg object-cover">
                     </div>
-                    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2  text-white p-2">
-                        &gt;
-                    </button>
                 </div>
+                <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white z-10">
+                    &gt;
+                </button>
             </div>
         
             <!-- Right text -->
-            <div class="sm:mt-10 md:mt-12 flex-1 p-4 lg:p-8 flex flex-col justify-center transform translate-x-[-50px] animate-fade-slide-right">
+            <div class="md:-mt-20 mt-12 flex-1 p-4 lg:p-8 flex flex-col justify-center transform translate-x-[-50px] animate-fade-slide-right">
                 <div class="mb-4 flex items-center space-x-4">
                     <div class="text-xs">Sold by</div>
                     <div id="company-dropdown-btn" class="w-48 flex justify-center py-2 text-sm font-medium text-gray-700 bg-[#f5f4e7] border border-transparent rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -217,7 +218,8 @@
             </div>
         </div>
 
-        <div class="bg-[#EFEFE2] my-32 p-6 rounded-lg max-w-2xl mx-auto text-sm animate-card">
+        <!-- card -->
+        <div class="bg-[#EFEFE2] md:my-32 my-5 p-6 rounded-lg max-w-2xl mx-auto text-sm animate-card">
             <div class="grid grid-cols-4">
               <!-- Column 1: Labels -->
               <div class="col-span-1 font-medium">
@@ -277,50 +279,52 @@
             </div>
         </div>
 
-        <div class="py-8">
-            <h2 class="text-2xl font-bold mb-12  text-center">Similar Items</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-6 featured-item">
-
-                <!-- Item 1 -->
-                <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 100ms;">
-                    <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
-                    <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
-                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
+        <!-- Similar items -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
+      
+            <div class="overflow-visible fade-in">
+                <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                    <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                    <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
                     <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                     <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                    <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
-                </div>
-    
-                <!-- Item 2 -->
-                <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 200ms;">
-                    <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
-                    <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
-                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                    <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
-                </div>
-        
-                <!-- Item 3 -->
-                <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 300ms;">
-                    <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
-                    <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
-                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                    <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
-                </div>
-        
-                <!-- Item 4 -->
-                <div class="bg-white p-4 rounded-lg shadow opacity-0 product transform translate-y-10 transition-all duration-500 ease-in-out"  style="transition-delay: 400ms;">
-                    <img class="w-full max-w-28 mx-auto object-cover" src="images/lata.png" alt="">
-                    <h3 class="text-xs text-purple-500 mb-2">71 Brewing Co</h3>
-                    <h1 class="text-lg font-semibold h-10 leading-6 mb-4">Pasteurized egg yolk Ovolpak</h1>
-                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
-                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
-                    <button class="wishlist-btn mx-auto mt-4 px-4 py-2 bg-black text-white rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out" onclick="saveItem(this)">+ wishlist</button>
+                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
                 </div>
             </div>
+
+            <div class="overflow-visible fade-in">
+                <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                    <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                    <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                </div>
+            </div>
+
+            <div class="overflow-visible fade-in">
+                <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                    <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                    <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                </div>
+            </div>
+
+            <div class="overflow-visible fade-in">
+                <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                    <img class="slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                    <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                    <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                    <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                    <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+                </div>
+            </div>  
         </div>
     </div>
 </main>
@@ -463,95 +467,63 @@
 
 </script>
 
-<!-- slides -->
+<!-- slides lightbox -->
 <script>
     const slides = document.getElementById('slides');
-const slideWidth = slides.children[0].offsetWidth;
-const totalSlides = slides.children.length;
-let currentSlide = 0;
+    const slideWidth = slides.children[0].offsetWidth + 8; // 8px for the margin
+    const totalSlides = slides.children.length;
+    let currentSlide = 0;
 
-document.getElementById('next').addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateCarousel();
-});
-
-document.getElementById('prev').addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateCarousel();
-});
-
-function updateCarousel() {
-    slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-}
-
-function selectImage(index) {
-    currentSlide = index;
-    updateCarousel();
-    document.getElementById('displayed-image').src = slides.children[currentSlide].src;
-}
-</script>
-
-<!-- animation card JS -->
-<script>
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const items = document.querySelectorAll('.product');
-    
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('translate-y-10', 'opacity-0');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-    
-        items.forEach((item, index) => {
-            observer.observe(item);
-        });
-    });
-    
-</script>
-
-<!-- slider effects -->
-<script>
-
-    document.addEventListener('DOMContentLoaded', () => {
-    const sliderContainer = document.getElementById('slider-container');
-    
-    setTimeout(() => {
-        sliderContainer.classList.remove('-translate-x-full', 'opacity-0');
-        sliderContainer.classList.add('translate-x-0', 'opacity-100');
-        }, 100); // Optional delay before the animation starts
+    document.getElementById('next').addEventListener('click', () => {
+        if (currentSlide < totalSlides - 5) {
+            currentSlide++;
+        }
+        updateCarousel();
     });
 
+    document.getElementById('prev').addEventListener('click', () => {
+        if (currentSlide > 0) {
+            currentSlide--;
+        }
+        updateCarousel();
+    });
+
+    function updateCarousel() {
+        slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+    }
+
+    function selectImage(index) {
+        currentSlide = index;
+        updateCarousel();
+        document.getElementById('displayed-image').src = slides.children[currentSlide].src;
+    }
 </script>
 
-<!-- save item JS -->
+<!-- save / unsave item JS -->
 <script>
-
-    function saveItem(button) {
-        // Change the button's appearance to indicate the item is saved
-        button.classList.remove('bg-black');
-        button.classList.add('bg-purple-500', 'cursor-not-allowed');
     
-        // Change the button text to include a checkmark
-        button.innerHTML = '<i class="fas fa-check mr-2"></i> saved';
-        button.disabled = true;
+    function toggleSave(button) {
+        if (button.classList.contains('bg-black')) {
+            button.classList.remove('bg-black');
+            button.classList.add('bg-purple-500', 'cursor-not-allowed');
+            button.innerHTML = '<i class="fas fa-check mr-2"></i> saved';
+        } else {
+            button.classList.remove('bg-purple-500', 'cursor-not-allowed');
+            button.classList.add('bg-black');
+            button.innerHTML = '+ wishlist';
+        }
     
-        // Apply a scale effect to the button for a pop effect
         button.classList.add('scale-105');
-    
-        // Reset the scale effect after a brief moment
         setTimeout(() => {
             button.classList.remove('scale-105');
-        }, 300); // The scale effect lasts for 300ms
+        }, 300);
     }
-    
+
 </script>
 
-<!-- animation card -->
+<!-- animation popup card -->
 <script>
+
     document.addEventListener('DOMContentLoaded', function () {
       const cards = document.querySelectorAll('.animate-card');
   
@@ -571,9 +543,10 @@ function selectImage(index) {
         observer.observe(card);
       });
     });
+
 </script>
 
-<!--  -->
+<!-- lightbox -->
 <script>
 
 let currentIndex = 0;
@@ -602,6 +575,30 @@ function moveSliderToCurrent() {
 }
 
 </script>
+
+<!-- fade animation -->
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const elements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 </body>
 
