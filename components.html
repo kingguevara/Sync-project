@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+   <!-- fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#FFFFF6] h-screen">
+
+
+ 
+<!-- Main content -->
+<main class="main-wrapper mx-auto">
+    <div class="container mx-auto">
+        <div class="components-wrapper grid grid-cols-2 gap-6">
+
+            <!-- notification -->
+            <div class="Notification">
+                <h4>Notifications</h4>
+                <div class="border md:p-12 p-3">
+                    <div class="max-w-sm text-center mx-auto bg-[#DEFAA3] py-3 px-4 text-sm text-green-700 rounded-xl mb-4">
+                    A login link has been sent to your email inbox
+                    </div>
+                    <div class="md:max-w-lg bg-orange-100 text-yellow-700 text-md font-medium p-4 text-center rounded-xl mb-4 mx-auto w-full transform scale-75">
+                        It looks like you have yet to add any items to your wishlist!
+                    </div>
+                    <div class="md:max-w-lg bg-red-300 text-red-600 text-md font-medium p-4 text-center rounded-xl mb-4 mx-auto w-full transform scale-75">
+                        This is an error message
+                    </div>
+                    <div class="md:max-w-lg bg-green-200 text-[#289992] text-md font-medium p-4 text-center rounded-xl mb-4 mx-auto w-full transform scale-75">
+                        This is an announcement
+                    </div>
+                </div>
+            </div>
+
+            <!-- login form -->
+            <div class="md:w-1/2 animate-fade-slide">
+                <!-- Email Input -->
+                <div class="mb-6">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2 bg-white w-32 relative top-[18px] ml-[10px] text-center text-sm">Your email address</label>
+                    <input type="email" id="email" name="email" class="block w-full p-3 border custom-border rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <!-- Submit Button -->
+                <button class="w-full bg-purple-200 text-white py-3 rounded-lg text-sm font-medium mb-4">
+                    send my login link
+                </button>
+                <!-- Register Link -->
+                <div class="text-center">
+                    <p class="text-sm text-gray-600">New here? <a href="#" class="text-indigo-600">Register</a></p>
+                </div>
+            </div>
+
+            <!-- sort by -->
+            <div class="sort-by">
+                <div class="relative inline-block text-left w-60">
+                    <button id="sortButton" type="button" class="inline-flex justify-between items-center w-full rounded-lg border border-black p-3 bg-white text-sm font-medium text-gray-700 focus:outline-none">
+                        <span id="selectedOption" class="">Recently added</span>
+                        <svg id="arrowIcon" class="ml-2 h-5 w-5 text-gray-500 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                
+                    <!-- Dropdown menu -->
+                    <div id="dropdownMenu" class="origin-top-right absolute right-0 border border-black border-t-0 w-full ring-opacity-5 bg-white hidden rounded-b-lg z-10">
+                        <div class="py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Newest First</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Most Expensive</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Minimal Stock</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Oldest First</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- pagination button -->
+            <div class="pagination">
+                <div class="pagination items-center text-end flex justify-end mt-20">
+                    <ul class="border rounded-xl flex p-4 bg-white text-center">
+                        <li>
+                            <a href="#" class="prev px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500 disabled:opacity-50 disabled:pointer-events-none">«</a>
+                        </li>
+                        <li>
+                            <a href="#" class="page-num px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500">1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="page-num px-2.5 py-1.5 border ro unded-md text-gray-700 hover:bg-gray-100 hover:border-purple-500">2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="page-num px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500">3</a>
+                        </li>
+                        <li>
+                            <a href="#" class="page-num px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500">4</a>
+                        </li>
+                        <li>
+                            <a href="#" class="page-num px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500">5</a>
+                        </li>
+                        <li>
+                            <a href="#" class="next px-2.5 py-1.5 border text-gray-700 hover:bg-gray-100 hover:border-purple-500 disabled:opacity-50 disabled:pointer-events-none">»</a>
+                        </li>
+                </ul>
+                </div>
+            </div>
+
+            <!-- wishlist/save button -->
+            <div class="wishlist-save">
+                <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<!-- footer -->
+<footer class="relative bg-[#FFFFF6] py-12 mt-60">
+
+    <!-- Left Image -->
+    <div class="absolute inset-y-0 left-0 ">
+        <img src="images/item-1.png" alt="Left Image" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Right Image -->
+    <div class="absolute inset-y-0 right-0 ">
+        <img src="images/item-2.png" alt="Right Image" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-between space-y-10 md:space-y-0">
+            <!-- Product Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Product</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers for Cafes</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers for Restaurants</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Bakery Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Meat Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Industrial Kitchen</a></li>
+                </ul>
+            </div>
+
+            <!-- Explore Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Explore</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Suppliers</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Categories</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Brands</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Section -->
+            <div class="width-link">
+                <h4 class="text-lg font-semibold mb-4">Company</h4>
+                <ul class="leading-9">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">About us</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Partners</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Advertise</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Join Us</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Subscribe Section -->
+            <div class="bg-[#F3F0F3] rounded-lg p-8 w-full md:w-4/12">
+                <h4 class="text-lg font-semibold mb-4">Subscribe</h4>
+                <form class="flex mb-4">
+                    <input type="email" placeholder="Email address" class="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none w-full">
+                    <button class="bg-purple-600 text-white px-4 py-2 rounded-r-lg">➔</button>
+                </form>
+                <p class="text-gray-600 mt-4">We send promotional tips and offers twice a month. Sign up for the good stuff.</p>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="mt-12 border-t border-gray-200 pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="text-gray-600">
+                <img src="images/top-logo.png" alt="" class="object-cover w-16">
+            </div>
+            <div class="flex space-x-10">
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Terms</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Privacy</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-sm font-semibold">Cookies</a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex space-x-6">
+                <!-- LinkedIn Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            
+                <!-- Facebook Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            
+                <!-- Twitter Icon -->
+                <a href="#" class="flex items-center justify-center w-10 h-10 bg-white border border-gray-200 rounded-full text-blue-900 hover:bg-gray-100">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS -->
+
+<!-- save / unsave item JS -->
+<script>
+    
+    function toggleSave(button) {
+        if (button.classList.contains('bg-black')) {
+            button.classList.remove('bg-black');
+            button.classList.add('bg-purple-500', 'cursor-not-allowed');
+            button.innerHTML = '<i class="fas fa-check mr-2"></i> saved';
+        } else {
+            button.classList.remove('bg-purple-500', 'cursor-not-allowed');
+            button.classList.add('bg-black');
+            button.innerHTML = '+ wishlist';
+        }
+    
+        button.classList.add('scale-105');
+        setTimeout(() => {
+            button.classList.remove('scale-105');
+        }, 300);
+    }
+
+</script>
+
+<!-- dropdown sort by -->
+<script>
+
+    document.getElementById('sortButton').addEventListener('click', function() {
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const arrowIcon = document.getElementById('arrowIcon');
+    const sortButton = document.getElementById('sortButton');
+    const selectedOption = document.getElementById('selectedOption');
+    dropdownMenu.classList.toggle('hidden');
+    
+        if (!dropdownMenu.classList.contains('hidden')) {
+            arrowIcon.classList.add('rotate-90');  // Rotates the arrow icon to the right
+            sortButton.classList.add('border-b-0');  // Removes the bottom border
+            sortButton.classList.add('rounded-b-none'); // Removes bottom border radius
+            selectedOption.classList.add('font-bold');  // Makes the text bold
+        } else {
+            arrowIcon.classList.remove('rotate-90'); // Reset the rotation when closed
+            sortButton.classList.remove('border-b-0'); // Adds the bottom border back
+            sortButton.classList.remove('rounded-b-none'); // Adds the bottom border radius back
+            selectedOption.classList.remove('font-bold');  // Removes the bold class
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+    const isClickInside = document.getElementById('sortButton').contains(event.target);
+    const dropdownMenu = document.getElementById('dropdownMenu');
+        
+        if (!isClickInside && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.add('hidden');
+            const arrowIcon = document.getElementById('arrowIcon');
+            const sortButton = document.getElementById('sortButton');
+            const selectedOption = document.getElementById('selectedOption');
+            arrowIcon.classList.remove('rotate-90'); // Reset the arrow rotation when clicked outside
+            sortButton.classList.remove('border-b-0'); // Adds the bottom border back
+            sortButton.classList.remove('rounded-b-none'); // Adds the bottom border radius back
+            selectedOption.classList.remove('font-bold');  // Removes the bold class
+        }
+    });
+
+ </script>        
+
+
+</body>
+
+</html>
