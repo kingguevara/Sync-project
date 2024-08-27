@@ -189,7 +189,8 @@
                     <div class="sidebar-container md:w-1/5 md:p-4 p-0 relative">
                         <!-- sidefilter -->
                         <div id="sticky-sidebar" class="filter-container md:p-4 p-0 sticky top-20">
-                            <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Categories</h2>
+                            <!-- filter categories -->
+                            <h2 class="text-sm font-semibold mb-4 mt-14">Filter by Categories</h2>
                             <ul class="mb-4 text-sm">
                                 <!-- Drinks -->
                                 <li class="my-5">
@@ -224,16 +225,14 @@
                         
                                 <!-- Decor -->
                                 <li class="my-5">
-                                    <div id="decorItem" class="flex items-center justify-between cursor-pointer" onclick="toggleDropdown('decorDropdown', 'decorIcon')">
+                                    <div id="decorItem" class="flex items-center  cursor-pointer" onclick="toggleDropdown('decorDropdown', 'decorIcon')">
                                         <label for="decorCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('decorCheckbox')">
                                             <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
                                                 <input id="decorCheckbox" type="checkbox" class="appearance-none rounded-full checked:bg-blue-500 checked:border-transparent focus:outline-none">
                                             </div>
                                             <span id="decorText">Decor (14)</span>
                                         </label>
-                                        <svg id="decorIcon" class="w-4 h-4 dropdown-icon transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                        </svg>
+                                        <i id="decorIcon" class="fa-solid fa-chevron-down ml-3 flex items-center w-4 h-4 dropdown-icon transform transition-transform"></i>
                                     </div>
                                     <ul class="ml-6 mt-2 hidden" id="decorDropdown">
                                         <li class="mt-2">
@@ -735,52 +734,42 @@
 
 <!-- JS -->
         
-<!-- navbar  -->
+<!-- new navbar  -->
 <script>
 
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const menuIconPath = document.getElementById('menu-icon-path');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-
-    menuBtn.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('translate-x-full')) {
-            mobileMenu.classList.remove('translate-x-full', 'opacity-0');
-            mobileMenu.classList.add('translate-x-0', 'opacity-100');
-        } else {
-            mobileMenu.classList.add('translate-x-full', 'opacity-0');
-            mobileMenu.classList.remove('translate-x-0', 'opacity-100');
-        }
-        menuIconPath.setAttribute('d', mobileMenu.classList.contains('translate-x-full') ? 'M4 6h16M4 12h16m-7 6h7' : 'M6 18L18 6M6 6l12 12');
-    });
-
-    closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('translate-x-full', 'opacity-0');
-        mobileMenu.classList.remove('translate-x-0', 'opacity-100');
-        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
-    });
-
+    document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.getElementById('navbar');
     let lastScrollTop = 0;
-    const navbar = document.getElementById("navbar");
+    let isNavbarVisible = false;
 
-    window.addEventListener("scroll", function() {
+    navbar.style.transform = 'translateY(-100%)';
+    navbar.style.transition = 'transform 0.5s ease-in-out';
+
+    window.addEventListener('scroll', function () {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-            navbar.classList.remove("navbar-hidden");
-            navbar.classList.add("navbar-visible");
-        } else {
-            navbar.classList.remove("navbar-visible");
-            navbar.classList.add("navbar-hidden");
-        }
+            if (scrollTop === 0) {
+                navbar.style.transform = 'translateY(-100%)';
+                isNavbarVisible = false;
+            } else if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                if (!isNavbarVisible) {
+                    navbar.style.transform = 'translateY(0)';
+                    isNavbarVisible = true;
+                }
+            } else {
+                // Scrolling up
+                if (isNavbarVisible) {
+                    navbar.style.transform = 'translateY(-100%)';
+                    isNavbarVisible = false;
+                }
+            }
 
-        lastScrollTop = scrollTop;
+            lastScrollTop = scrollTop;
+        });
     });
 
 </script>
     
-
-
 <!-- animation card JS -->
 <script>
 

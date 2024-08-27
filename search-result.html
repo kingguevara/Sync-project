@@ -555,6 +555,44 @@
     </div>
 </footer>
 
+<!-- JS -->
+        
+<!-- new navbar  -->
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+    let isNavbarVisible = false;
+
+    navbar.style.transform = 'translateY(-100%)';
+    navbar.style.transition = 'transform 0.5s ease-in-out';
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop === 0) {
+                navbar.style.transform = 'translateY(-100%)';
+                isNavbarVisible = false;
+            } else if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                if (!isNavbarVisible) {
+                    navbar.style.transform = 'translateY(0)';
+                    isNavbarVisible = true;
+                }
+            } else {
+                // Scrolling up
+                if (isNavbarVisible) {
+                    navbar.style.transform = 'translateY(-100%)';
+                    isNavbarVisible = false;
+                }
+            }
+
+            lastScrollTop = scrollTop;
+        });
+    });
+
+</script>
+
 <!-- tab -->
 <script>
 
@@ -578,52 +616,6 @@
         });
     });
         
-</script>
-
-<!-- JS -->
-        
-<!-- navbar  -->
-<script>
-
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const menuIconPath = document.getElementById('menu-icon-path');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-
-    menuBtn.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('translate-x-full')) {
-            mobileMenu.classList.remove('translate-x-full', 'opacity-0');
-            mobileMenu.classList.add('translate-x-0', 'opacity-100');
-        } else {
-            mobileMenu.classList.add('translate-x-full', 'opacity-0');
-            mobileMenu.classList.remove('translate-x-0', 'opacity-100');
-        }
-        menuIconPath.setAttribute('d', mobileMenu.classList.contains('translate-x-full') ? 'M4 6h16M4 12h16m-7 6h7' : 'M6 18L18 6M6 6l12 12');
-    });
-
-    closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('translate-x-full', 'opacity-0');
-        mobileMenu.classList.remove('translate-x-0', 'opacity-100');
-        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
-    });
-
-    let lastScrollTop = 0;
-    const navbar = document.getElementById("navbar");
-
-    window.addEventListener("scroll", function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-            navbar.classList.remove("navbar-hidden");
-            navbar.classList.add("navbar-visible");
-        } else {
-            navbar.classList.remove("navbar-visible");
-            navbar.classList.add("navbar-hidden");
-        }
-
-        lastScrollTop = scrollTop;
-    });
-
 </script>
 
 <!-- save JS -->
@@ -760,7 +752,6 @@
         resultsContainer.innerHTML = ''; 
     }
 </script>
-
 
 <!-- animation card JS -->
 <script>
