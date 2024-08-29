@@ -166,7 +166,7 @@
             </div>
             
             <!-- Header Section -->
-            <div class="md:mb-12 mb-0 md:p-4 p-0 max-w-6xl mx-auto">
+            <div class="md:mb-12 mb-0 lg:p-4 p-0 max-w-6xl mx-auto">
                 <div class="md:ml-36 ml-0 ">
                     <a href="blog-article--list.html" class="hover:underline">Browse</a> >
                     <a href="#" class="hover:underline">Foods</a> >
@@ -186,12 +186,14 @@
               <!-- Body content -->
               <div class="flex flex-col md:flex-row relative">
                 <div class="flex max-w-7xl mx-auto side-filter">
-                    <div class="sidebar-container md:w-1/5 md:p-4 p-0 relative">
+                    <div class="sidebar-container md:w-1/5 lg:p-4 p-0 relative">
+
                         <!-- sidefilter -->
-                        <div id="sticky-sidebar" class="filter-container md:p-4 p-0 sticky top-20">
+                        <div id="sticky-sidebar" class="filter-container lg:p-4 p-0 sticky top-20">
                             <!-- filter categories -->
                             <h2 class="text-sm font-semibold mb-4 mt-14">Filter by Categories</h2>
                             <ul class="mb-4 text-sm">
+
                                 <!-- Drinks -->
                                 <li class="my-5">
                                     <label for="drinksCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('drinksCheckbox')">
@@ -357,7 +359,7 @@
                         
                             <!-- Filter by Attribute -->
                             <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Attribute</h2>
-                            <ul class="mb-4 text-smWWW">
+                            <ul class="mb-4 text-sm">
                                 <li class="my-5">
                                     <label for="attribute1Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('attribute1Checkbox')">
                                         <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
@@ -385,7 +387,7 @@
                                             <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
                                             <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
                                             <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
-                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                            <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                                         </div>
                                     </div>
 
@@ -395,7 +397,7 @@
                                             <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
                                             <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
                                             <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
-                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                            <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                                         </div>
                                     </div>
 
@@ -405,7 +407,7 @@
                                             <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
                                             <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
                                             <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
-                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                            <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                                         </div>
                                     </div>
 
@@ -415,13 +417,14 @@
                                             <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
                                             <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
                                             <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
-                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                            <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                                         </div>
                                     </div>     
                                 </div> 
                             </div>
                             
-                            <div class="flex justify-between flex-wrap">
+                            <!-- dropdown -->
+                            <div class="flex justify-between items-center flex-wrap">
                                 <h2 class="text-2xl font-bold md:mb-0 mb-4">Here’s a list of Foods</h2>
                                 <!-- dropdown sort by -->
                                 <div class="relative inline-block text-left w-60">
@@ -445,7 +448,7 @@
                             </div>
 
                             <!-- list of foods -->
-                            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
+                            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 gap-2 mt-12">
                                 <!-- Repeated item -->
                                 <div class="overflow-visible fade-in">
                                     <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">

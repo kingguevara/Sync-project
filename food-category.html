@@ -167,8 +167,8 @@
                 </button>
             </div>
             
-            <!-- Header -->
-            <div class="flex flex-col md:flex-row items-center mb-12 p-4 max-w-6xl mx-auto">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row items-center mb-12 lg:p-4 p-0 max-w-6xl mx-auto">
                 <div class="md:w-2/5 transform translate-x-[-50px] animate-fade-slide">
                     <div class="md:ml-36 ml-0">
                         <a href="blog-article--list.html" class="hover:underline">Browse</a> >
@@ -180,7 +180,7 @@
                 </div>
 
                 <!-- Text / Tabs -->
-                <div class="md:w-3/5 md:mt-8 mt-0 md:pl-6 text-black transform translate-x-[-50px] animate-fade-slide-right food-right">
+                <div class="md:w-3/5 md:mt-8 mt-4 md:pl-6 text-black transform translate-x-[-50px] animate-fade-slide-right food-right">
                     <h1 class="text-3xl font-bold">Foods</h1>
                     <p class="mt-2 mb-6 ">Explore premium suppliers for fresh produce, artisanal ingredients, and specialty foods. Whether you're sourcing organic fruits, gourmet spices, or meats, connect with trusted vendors to elevate your menu and streamline your sourcing process. Start browsing now for the finest ingredients.</p>
                     <div class="bg-[#F9F9EF] text-sm font-medium text-gray-500 overflow-auto rounded-xl">
@@ -200,22 +200,22 @@
                 </div>
             </div>
 
-              <!-- Body content -->
-              <div class="flex flex-col md:flex-row relative">
+            <!-- Body content -->
+            <div class="flex flex-col md:flex-row relative">
                 <div class="flex max-w-7xl mx-auto side-filter">
-                    <div class="sidebar-container md:w-1/5 md:p-4 p-0 relative">
+                    <div class="sidebar-container md:w-1/5 lg:p-4 p-0 relative">
+
                         <!-- sidefilter -->
-                        <div id="sticky-sidebar" class="filter-container md:p-4 p-0 sticky top-20">
+                        <div id="sticky-sidebar" class="filter-container lg:p-4 p-0 sticky top-20">
                             <!-- filter categories -->
                             <h2 class="text-sm font-semibold mb-4 mt-14">Filter by Categories</h2>
                             <ul class="mb-4 text-sm">
                                 <!-- Drinks -->
                                 <li class="my-5">
                                     <label for="drinksCheckbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('drinksCheckbox')">
-                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black">
-                                            <input id="drinksCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none"> 
+                                        <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
+                                            <input id="drinksCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none">
                                         </div>
-                                        <input id="drinksCheckbox" type="checkbox" class="appearance-none rounded-md checked:bg-black checked:border-transparent focus:outline-none"> 
                                         <span id="drinksText">Drinks (3)</span>
                                     </label>
                                 </li>
@@ -374,7 +374,7 @@
                         
                             <!-- Filter by Attribute -->
                             <h2 class="text-sm font-semibold mb-4 mt-6">Filter by Attribute</h2>
-                            <ul class="mb-4 text-smWWW">
+                            <ul class="mb-4 text-sm">
                                 <li class="my-5">
                                     <label for="attribute1Checkbox" class="flex items-center cursor-pointer" onclick="toggleBoldAndCheck('attribute1Checkbox')">
                                         <div class="border h-4 w-4 flex justify-center items-center rounded-md border-black mr-2">
@@ -385,6 +385,7 @@
                                 </li>
                             </ul>
                         </div>
+
                     </div>
                 
                     <!-- Main Content -->
@@ -402,7 +403,7 @@
                                             <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
                                             <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
                                             <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
-                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                            <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                                         </div>
                                     </div>
 
@@ -412,7 +413,7 @@
                                             <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
                                             <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
                                             <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
-                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                            <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                                         </div>
                                     </div>
 
@@ -422,7 +423,7 @@
                                             <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
                                             <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
                                             <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
-                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                            <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                                         </div>
                                     </div>
 
@@ -432,13 +433,14 @@
                                             <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
                                             <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
                                             <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
-                                            <p class="text-black my-6 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                                            <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
                                         </div>
                                     </div>     
                                 </div> 
                             </div>
                             
-                            <div class="flex justify-between flex-wrap">
+                            <!-- dropdown -->
+                            <div class="flex justify-between items-center flex-wrap">
                                 <h2 class="text-2xl font-bold md:mb-0 mb-4">Here’s a list of Foods</h2>
                                 <!-- dropdown sort by -->
                                 <div class="relative inline-block text-left w-60">
@@ -461,8 +463,8 @@
                                 </div>
                             </div>
 
-                            <!-- list of foods -->
-                            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
+                            <!-- list of foods items -->
+                            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 gap-2 mt-12">
                                 <!-- Repeated item -->
                                 <div class="overflow-visible fade-in">
                                     <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
@@ -917,8 +919,8 @@
         } else {
             arrowIcon.classList.remove('rotate-90'); // Reset the rotation when closed
             sortButton.classList.remove('border-b-0'); // Adds the bottom border back
-            sortButton.classList.remove('rounded-b-none'); // Adds the bottom border radius back
-            selectedOption.classList.remove('font-bold');  // Removes the bold class
+            sortButton.classList.remove('rounded-b-none'); 
+            selectedOption.classList.remove('font-bold');  
         }
     });
 
@@ -931,10 +933,10 @@
             const arrowIcon = document.getElementById('arrowIcon');
             const sortButton = document.getElementById('sortButton');
             const selectedOption = document.getElementById('selectedOption');
-            arrowIcon.classList.remove('rotate-90'); // Reset the arrow rotation when clicked outside
-            sortButton.classList.remove('border-b-0'); // Adds the bottom border back
-            sortButton.classList.remove('rounded-b-none'); // Adds the bottom border radius back
-            selectedOption.classList.remove('font-bold');  // Removes the bold class
+            arrowIcon.classList.remove('rotate-90'); 
+            sortButton.classList.remove('border-b-0'); 
+            sortButton.classList.remove('rounded-b-none'); 
+            selectedOption.classList.remove('font-bold'); 
         }
     });
 

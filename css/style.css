@@ -130,14 +130,14 @@ input:focus {
     @media (max-width: 768px) {
         grid-template-columns: 30% 70%!important;
         gap: 10px;
-        padding-left: 1rem!important;
+        padding-right: 1rem!important;
     }
 }
 
 .dashboard-card {
     @media (max-width: 568px) {
         grid-template-columns: 1fr!important;
-        padding-right: 1rem!important;
+        
     }
 }
 
