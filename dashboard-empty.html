@@ -10,7 +10,7 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
- </head>
+</head>
 
 <body class="bg-[#FFFFF6] h-screen">
 
@@ -145,28 +145,114 @@
 
 <!-- Main content -->
 <main class="main-wrapper mx-auto mt-16 overflow-hidden">
-    <div class="container mx-auto md:p-8 p-3 max-w-7xl">
-        <!-- Main Content -->
-        <div class="lg:col-span-3">   
-            <div id="home" class="content-section">
-                <p class="mb-6 text-sm">Dashboard</p>
-                <h1 class="text-3xl font-semibold mb-8">My Dashboard</h1>
-                <p class="mb-5 text-sm">Here are some items you’ve added to your wishlist...</p>
-                <div class="text-sm">
-                    <div class="text-center md:w-2/3 w-full mx-auto mt-24">
-                        <!-- Notification Message -->
-                        <div id="popup-card" class="bg-orange-50 text-yellow-700 text-sm font-medium px-4 py-3 rounded-lg mb-4 mx-auto md:w-3/5 w-full transform scale-75 opacity-0 transition-all duration-500 ease-out">Your dashboard is empty, start browsing below!</div>
-                        <!-- Browse Button -->
-                        <button class="border border-black text-black px-4 py-3 rounded-lg mx-auto w-full transition-all duration-500 ease-in-out hover:scale-105 hover:bg-purple-600 hover:text-white">Begin by browsing categories</button>
+    <div class="container mx-auto grid grid-cols-[20%,80%] max-w-7xl dashboard-card">
+        <!-- Sidebar Menu -->
+        <div id="sidebar" class="bg-[#F9F9EF] px-6 py-8 rounded-lg max-w-x h-full max-h-[400px]">
+           <p class="font-bold text-gray-700 mb-4 text-sm">Good morning, Chris</p>
+           <nav class="space-y-4 p-4 dashboard-content">
+               <a href="#" class="block text-gray-800 text-md font-normal" onclick="showContent('home'); activateLink(this);return false;">Dashboard Home</a>
+               <hr>
+               <a href="#" class="block text-gray-800 text-md font-normal" onclick="showContent('wishlist'); activateLink(this); return false;">My Wishlist</a>
+               <hr>
+               <a href="#" class="block text-gray-800 text-md font-normal flex items-center" onclick="showContent('chats'); activateLink(this); return false;">My Chats<span class="ml-2 bg-teal-200 text-teal-800 text-xs font-semibold px-2 py-0.5 rounded-full">4</span></a>
+               <hr>
+               <a href="#" class="block text-gray-800 text-md font-normal" onclick="showContent('settings'); activateLink(this); return false;">My Settings</a>
+               <hr>
+               <a href="#" class="block text-gray-800 text-md font-normal" onclick="showContent('notifications'); activateLink(this); return false;">Notifications</a>
+           </nav>
+
+           <!-- FILTER SIDE -->
+           <div id="filter-sidebar" class="mt-24 hidden space-y-4">
+                <!-- filter categories -->
+                <div class="relative">
+                    <button id="categoriesButton" class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-left">
+                        Filter by Categories <span class="ml-2">▼</span>
+                    </button>
+                    <div id="categoriesContent" class="transition-all duration-300 ease-in-out origin-top-right transform scale-y-0 opacity-0 text-sm">
+                        <ul class="px-8 py-3 space-y-2">
+                            <li class="py-1"><input type="checkbox" id="drinks" name="drinks"> <label for="drinks">Drinks (4)</label></li>
+                            <li class="py-1"><input type="checkbox" id="food" name="food"> <label for="food">Food (1)</label></li>
+                            <li class="py-1"><input type="checkbox" id="furniture" name="furniture"> <label for="furniture">Furniture (9)</label></li>
+                            <li class="py-1"><input type="checkbox" id="decor" name="decor"> <label for="decor">Decor (3)</label></li>
+                            <li class="py-1"><input type="checkbox" id="bakery" name="bakery"> <label for="bakery">Bakery (3)</label></li>
+                        </ul>
                     </div>
-                </div>        
+                </div>
+            
+                <!-- Filter by Suppliers -->
+                <div class="relative">
+                    <button id="suppliersButton" class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-left">
+                        Filter by Suppliers <span class="ml-2">▼</span>
+                    </button>
+                    <div id="suppliersContent" class="transition-all duration-300 ease-in-out origin-top-right transform scale-y-0 opacity-0 text-sm">
+                        <ul class="px-8 py-3 space-y-2">
+                            <li class="py-1"><input type="checkbox" id="supplier1" name="supplier1"> <label for="supplier1">Supplier 1</label></li>
+                            <li class="py-1"><input type="checkbox" id="supplier2" name="supplier2"> <label for="supplier2">Supplier 2</label></li>
+                            <li class="py-1"><input type="checkbox" id="supplier3" name="supplier3"> <label for="supplier3">Supplier 3</label></li>
+                            <li class="py-1"><input type="checkbox" id="supplier4" name="supplier4"> <label for="supplier4">Supplier 4</label></li>
+                            <li class="py-1"><input type="checkbox" id="supplier5" name="supplier5"> <label for="supplier5">Supplier 5</label></li>
+                        </ul>
+                    </div>
+                </div>
+           </div>
+       </div>
+
+       <!-- Body-->
+       <div class="w-full pl-8 dashboard-body">
+
+           <!-- Home Content -->
+           <div id="home-content" class="content-section">
+                <div class="lg:col-span-3">   
+                    <div id="home" class="">
+                        <p class="mb-4 text-sm">Dashboard</p>
+                        <h1 class="text-3xl font-semibold mb-8">My Dashboard</h1>
+                        <p class="mb-5 text-sm">Here are some items you’ve added to your wishlist...</p>
+                        <div class="text-sm">
+                            <div class="text-center md:w-2/3 w-full mx-auto mt-24">
+                                <!-- Notification Message -->
+                                <div id="popup-card" class="bg-orange-50 text-yellow-700 text-lg font-medium px-4 py-3 rounded-xl mb-4 mx-auto md:w-10/12 w-full transform scale-75 transition-all duration-500 ease-out">Your dashboard is empty, start browsing below!</div>
+                                <!-- Browse Button -->
+                                <button class="border border-black text-black px-4 py-3 rounded-lg mx-auto md:w-10/12 w-full transition-all duration-500 ease-in-out hover:scale-105 hover:bg-purple-600 hover:text-white">Begin by browsing categories</button>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+           </div>
+
+           <!-- Wishlist Content -->
+            <div id="wishlist-content" class="content-section hidden">
+                <p class="mb-4 text-sm">Dashboard > My Wishlist</p>
+               <h1 class="text-3xl font-semibold mb-8">My Wishlist</h1>
+               <p class="mb-4 text-md">Here are some items you’ve added to your wishlist...</p>
             </div>
-        </div>
-    </div>
+
+           <!-- Chats Content -->
+           <div id="chats-content" class="content-section hidden">
+               <p class="mb-4 text-sm">Dashboard > My Chats</p>
+               <h1 class="text-3xl font-semibold mb-8">My Chats</h1>
+               <p class="mb-4 text-md">Here are some items you’ve added to your wishlist...</p>
+           </div>
+
+           <!-- Settings Content -->
+           <div id="settings-content" class="content-section hidden">
+               <p class="mb-4 text-sm">Dashboard > Settings</p>
+               <h1 class="text-3xl font-semibold mb-8">My Settings</h1>
+               <p class="mb-4 text-md">Here are some items you’ve added to your wishlist...</p>
+           </div>
+
+           <!-- Notifications Content -->
+           <div id="notifications-content" class="content-section hidden">
+               <p class="mb-4 text-sm">Dashboard > Notifications</p>
+               <h1 class="text-3xl font-semibold mb-8">Notifications</h1>
+               <p class="mb-4 text-md">Here are some items you’ve added to your wishlist...</p>
+           </div>
+       </div>
+   </div>
 </main>
 
+
 <!-- footer -->
-<footer class="relative bg-[#FFFFF6] py-12 mt-40">
+<footer class="relative bg-[#FFFFF6] py-12 mt-60">
 
     <!-- Left Image -->
     <div class="absolute inset-y-0 left-0 ">
@@ -257,9 +343,8 @@
     </div>
 </footer>
 
-
 <!-- JS -->
-
+        
 <!-- new navbar  -->
 <script>
 
@@ -296,18 +381,84 @@
 
 </script>
 
-<!-- pop up card -->
+<!-- DASHBOARD -->
 <script>
 
-    document.addEventListener('DOMContentLoaded', () => {
-    const popupCard = document.getElementById('popup-card');
-    
-    setTimeout(() => {
-        popupCard.classList.remove('scale-75', 'opacity-0');
-        popupCard.classList.add('scale-100', 'opacity-100');
+    function showContent(sectionId) {
+        // Hide all content sections
+        var sections = document.querySelectorAll('.content-section');
+        sections.forEach(function(section) {
+        section.classList.add('hidden');
 
-        }, 100); // Adjust the delay if needed
-    });
+        });
+
+        // Show the clicked content section
+        var sectionToShow = document.getElementById(sectionId);
+        sectionToShow.classList.remove('hidden');
+    
+    }
+
+    function activateLink(element) {
+        // Remove 'active', 'font-bold', and 'text-black' from all links
+        var links = document.querySelectorAll('nav a');
+        links.forEach(function(link) {
+            link.classList.remove('active', 'font-bold', 'text-black');
+            link.classList.add('text-gray-800');
+        
+        });
+
+        // Add 'active', 'font-bold', and 'text-black' to the clicked link
+        element.classList.add('active', 'font-bold', 'text-black');
+        element.classList.remove('text-gray-800');
+    
+    }
+
+</script>
+
+<!-- FILTER JS -->
+<script>
+
+    function showContent(contentId) {
+         // Hide all content sections
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => section.classList.add('hidden'));
+
+        // Show the selected content section
+        document.getElementById(contentId + '-content').classList.remove('hidden');
+
+        // Show the filter sidebar only when "My Wishlist" is selected
+        const filterSidebar = document.getElementById('filter-sidebar');
+        if (contentId === 'wishlist') {
+            filterSidebar.classList.remove('hidden');
+
+        } else {
+            filterSidebar.classList.add('hidden');
+
+            }
+        }
+
+    function filterProducts() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        const products = document.querySelectorAll('.product');
+
+        // Hide all products initially
+         products.forEach(product => product.style.display = 'none');
+
+        // Loop through all checked filters and show matching products
+        checkboxes.forEach(checkbox => {
+            const filter = checkbox.getAttribute('data-filter');
+            products.forEach(product => {
+                if (product.getAttribute('data-category') === filter) {
+                    product.style.display = 'block';
+                }
+            });
+        });
+
+        // If no checkbox is selected, show all products
+        if (checkboxes.length === 0) {
+            products.forEach(product => product.style.display = 'block');
+        }
+    }
 
 </script>
 
