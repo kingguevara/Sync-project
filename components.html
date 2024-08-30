@@ -20,7 +20,6 @@
 <main class="main-wrapper mx-auto">
     <div class="container mx-auto">
         <div class="components-wrapper grid grid-cols-2 gap-6">
-
             <!-- notification -->
             <div class="Notification">
                 <h4>Notifications</h4>
@@ -112,7 +111,137 @@
             <div class="wishlist-save">
                 <button onclick="toggleSave(this)" class="bg-black text-white rounded-full mx-auto px-4 py-2 mt-4 rounded-xl text-sm flex items-center justify-center transition-transform duration-300 ease-in-out">+ wishlist</button>
             </div>
+        </div>
+        
+        <br>
+        <br>
 
+        <!-- product search list -->
+        <div class="gap-6 flex ">
+
+            <!-- large list -->
+            <div class="overflow-visible md:w-6/12 w-full">
+                <div class="bg-white rounded-lg p-6 grid grid-cols-3 gap-4 max-w-lg hover:shadow-md transition-shadow duration-300">
+                    <div class="col-span-1 flex justify-center items-center ">
+                        <img class="border border-gray-200 rounded-xl slide-image w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                    </div>
+                    <div class="relative md:w-10/12 w-full col-span-2">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold  md:leading-6 leading-5 ">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- small list -->
+            <div class="overflow-visible md:w-6/12 w-full">
+                <div class="bg-white p-6 rounded-lg flex items-center gap-4 product group hover:shadow-md transition-shadow duration-300">
+                    <div class="flex justify-center items-center ">
+                        <img class="border border-gray-200 rounded-xl slide-image w-full md:max-w-20 max-w-20 mx-auto object-cover" src="images/lata.png" alt="">
+                    </div>                    
+                    <div>
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold md:leading-6 leading-5">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                        <p class="text-black mt-2 p-1.5 border px-3 border-solid border-gray-200 font-medium rounded-lg text-sm">£7 per box</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- product adds -->
+        <div class="py-8">
+            <h2 class="text-2xl font-bold mb-6">Featured Items</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+
+                <div class="overflow-visible">
+                    <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                        <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    </div>
+                </div>
+
+                <div class="overflow-visible">
+                    <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                        <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    </div>
+                </div>
+
+                <div class="overflow-visible">
+                    <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                        <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    </div>
+                </div>
+
+                <div class="overflow-visible">
+                    <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                        <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    </div>
+                </div>     
+            </div> 
+        </div>
+
+
+        <!-- products cards -->
+        <div class="py-8">
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+
+                <div class="overflow-visible">
+                    <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                        <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    </div>
+                </div>
+
+                <div class="overflow-visible">
+                    <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                        <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    </div>
+                </div>
+
+                <div class="overflow-visible">
+                    <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                        <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    </div>
+                </div>
+
+                <div class="overflow-visible">
+                    <p class="absolute z-10 left-4 top-5 text-xs font-regular text-yellow-700">sponsored</p>
+                    <div class="bg-white p-4 rounded-lg shadow product group hover:shadow-md transition-shadow duration-300">
+                        <img class="slide-image mt-8 w-full md:max-w-28 max-w-20 mx-auto object-cover transition-transform transform group-hover:scale-110 duration-300" src="images/lata.png" alt="">
+                        <h3 class="text-xs text-purple-500 mb-2 relative">71 Brewing Co</h3>
+                        <h1 class="md:text-lg text-sm font-semibold h-10 md:leading-6 leading-5 md:mb-4 mb-2">Pasteurized egg yolk Ovolpak</h1>
+                        <p class="text-black mt-2 mb-4 text-sm">Stainless Steel ideal for big restaurants with 3 chefs</p>
+                    </div>
+                </div>     
+            </div> 
         </div>
     </div>
 </main>
