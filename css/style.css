@@ -15,6 +15,10 @@ select:focus {
     outline: none;
 }
 
+.placeholder-custom-olive::placeholder {
+    color: #A9A76D;
+  }
+
 input:focus {
     outline: none;
 }
