@@ -186,11 +186,11 @@
                         <ul id="tabs" class="flex text-lg font-medium items-center justify-between py-5 pl-6 min-w-[500px] overflow-x-auto whitespace-nowrap scrollbar-hide">
                           <li class="px-2"><a href="#" data-tab="all" class="tab-link active text-gray-900 border-b-2 border-black font-semibold">All</a></li>
                           <li class="px-2"><a href="#" data-tab="food" class="tab-link font-semibold">Snacks</a></li>
-                          <li class="px-2"><a href="#" data-tab="drinks" class="py-8 tab-link font-semibold">Bakery</a></li>
-                          <li class="px-2"><a href="#" data-tab="equipment" class="py-8 tab-link font-semibold">Vegan</a></li>
-                          <li class="px-2"><a href="#" data-tab="furniture" class="py-8 tab-link font-semibold">Meats</a></li>
-                          <li class="px-2"><a href="#" data-tab="tableware" class="py-8 tab-link font-semibold">Pub Food</a></li>
-                          <li class="px-2"><a href="#" data-tab="cleaning" class="py-8 tab-link font-semibold">Frozen</a></li>
+                          <li class="px-2"><a href="#" data-tab="drinks" class=" tab-link font-semibold">Bakery</a></li>
+                          <li class="px-2"><a href="#" data-tab="equipment" class="tab-link font-semibold">Vegan</a></li>
+                          <li class="px-2"><a href="#" data-tab="furniture" class="tab-link font-semibold">Meats</a></li>
+                          <li class="px-2"><a href="#" data-tab="tableware" class="tab-link font-semibold">Pub Food</a></li>
+                          <li class="px-2"><a href="#" data-tab="cleaning" class="tab-link font-semibold">Frozen</a></li>
                           <li class="px-2"><a href="#" data-tab="health-safety" class="tab-link font-semibold">Handmade</a></li>
                           <li class="ml-24"><a href="#" data-tab="health-safety" class="py-5 px-7 tab-link font-semibold bg-[#EBEBD7] rounded-lg">browse more</a></li>
                         </ul>
@@ -763,40 +763,91 @@
 
 <!-- JS -->
         
-<!-- new navbar  -->
+<!-- new nav js -->
 <script>
-
     document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.getElementById('navbar');
-    let lastScrollTop = 0;
-    let isNavbarVisible = false;
+        // Get references to DOM elements
+        const navbar = document.getElementById('navbar');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuBtn = document.getElementById('menu-btn'); // Single button to toggle the mobile menu
+        const companyDropdownBtn = document.getElementById('company-dropdown-btn'); // Button to toggle company dropdown
+        const companyDropdownMenu = document.getElementById('company-dropdown-menu'); // Company dropdown menu
 
-    navbar.style.transform = 'translateY(-100%)';
-    navbar.style.transition = 'transform 0.5s ease-in-out';
+        let lastScrollTop = 0;
+        let isNavbarVisible = false;
+        let isMenuOpen = false; // Track the state of the mobile menu
 
-    window.addEventListener('scroll', function () {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop === 0) {
-                navbar.style.transform = 'translateY(-100%)';
-                isNavbarVisible = false;
-            } else if (scrollTop > lastScrollTop) {
-                // Scrolling down
-                if (!isNavbarVisible) {
-                    navbar.style.transform = 'translateY(0)';
-                    isNavbarVisible = true;
-                }
+        // Function to update the visibility of the navbar based on scroll
+        function updateNavbarVisibility() {
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+            if (isMobile) {
+                navbar.style.visibility = 'visible';
+                navbar.style.opacity = '1';
+                navbar.style.transition = 'none';
             } else {
-                // Scrolling up
-                if (isNavbarVisible) {
-                    navbar.style.transform = 'translateY(-100%)';
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop === 0) {
+                    navbar.style.visibility = 'hidden';
+                    navbar.style.opacity = '0';
                     isNavbarVisible = false;
+                } else if (scrollTop > lastScrollTop) {
+                    if (!isNavbarVisible) {
+                        navbar.style.visibility = 'visible';
+                        navbar.style.opacity = '1';
+                        isNavbarVisible = true;
+                    }
+                } else {
+                    if (isNavbarVisible) {
+                        navbar.style.visibility = 'hidden';
+                        navbar.style.opacity = '0';
+                        isNavbarVisible = false;
+                    }
                 }
+
+                lastScrollTop = scrollTop;
             }
+        }
 
-            lastScrollTop = scrollTop;
-        });
+        // Function to toggle the mobile menu
+        function toggleMenu() {
+            if (isMenuOpen) {
+                // Close the menu
+                mobileMenu.style.transform = 'translateX(100%)';
+                mobileMenu.style.opacity = '0';
+            } else {
+                // Open the menu
+                mobileMenu.style.transform = 'translateX(0)';
+                mobileMenu.style.opacity = '1';
+            }
+            isMenuOpen = !isMenuOpen; // Toggle the state
+        }
+
+        // Function to toggle the company dropdown menu
+        function toggleDropdownMenu() {
+            companyDropdownMenu.classList.toggle('hidden');
+        }
+
+        // Ensure navbar is hidden initially
+        navbar.style.visibility = 'hidden';
+        navbar.style.opacity = '0';
+
+        // Initial call to set the correct state
+        updateNavbarVisibility();
+
+        // Update on scroll
+        window.addEventListener('scroll', updateNavbarVisibility);
+
+        // Update on resize to handle screen size changes
+        window.addEventListener('resize', updateNavbarVisibility);
+
+        // Event listener for mobile menu toggle
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Event listener for company dropdown menu
+        companyDropdownBtn.addEventListener('click', toggleDropdownMenu);
     });
-
 </script>
     
 <!-- animation card JS -->

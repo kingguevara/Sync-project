@@ -456,10 +456,22 @@ nav {
 
  #navbar {
 
+    visibility: hidden;
+        /* Hide the navbar */
+    opacity: 0;
+    /* Ensure it's fully transparent */
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+
     @media (max-width: 1200px) {
         padding: 1rem
     }
- }
+
+    @media(max-width: 768px) {
+
+        display: block!important;
+    }
+
+}
 
  .card-image {
     transition: transform 0.3s ease-in-out;
@@ -510,8 +522,8 @@ nav {
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        height: 13px;
-        width: 13px;
+        height: 12px;
+        width: 12px;
         position: relative;
         cursor: pointer;
         background-color: #FFFFFF;
@@ -527,3 +539,7 @@ nav {
     input[type="checkbox"]:focus {
         box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
     }
+
+
+/* mobile css */
+
